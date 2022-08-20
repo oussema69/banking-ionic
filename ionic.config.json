@@ -1,0 +1,7 @@
+{
+  "name": "Birou Mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
