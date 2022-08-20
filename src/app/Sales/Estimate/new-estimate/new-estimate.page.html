@@ -1,0 +1,325 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Estimate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="input-border">
+          <div class="label-1">
+            Date
+          </div>
+          <ion-input type="date" [(ngModel)]="form.date" name="date"></ion-input>
+          <img src="../../assets/img/Icon material-date-range.png" class="icon-input">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="input-border">
+          <div class="label-1">
+            Due
+          </div>
+          <ion-input type="date" [(ngModel)]="form.due" name="due"></ion-input>
+          <img src="../../assets/img/Icon material-date-range.png" class="icon-input">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="input-border">
+          <div class="label-3">
+            Estimate N°
+          </div>
+          <ion-input type="text" placeholder=" 00005" [(ngModel)]="form.estimate_number" name="number">EST - </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="input-border">
+          <div class="label-1">
+            Client
+          </div>
+          <ion-select [value]="clientDefault" interface="popover" [(ngModel)]="clientSend" name="client">
+            <ion-select-option *ngFor="let client of clients" [value]="client">{{client.display_name}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="input-border">
+          <div class="label-3">
+            Reference Number
+          </div>
+          <ion-input type="text" placeholder="Reference Number"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="input-border">
+          <div class="label-3">
+            Item prices are:
+          </div>
+          <ion-select value="1" interface="popover" [(ngModel)]="form.tax_type" name="tax_type">
+            <ion-select-option value="1">Without Taxes</ion-select-option>
+            <ion-select-option value="2">Tax Included</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="button3-color btn-radius">
+          <button class="btn padding-btn text-light text-btn" (click)="onSubmit()">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="icon-footer">
+          <img src="../../assets/img/Groupe41.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- <ion-card class="card-radius">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Date
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input type="date" [(ngModel)]="form.date" name="date"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Due Date
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input type="date" [(ngModel)]="form.due" name="due"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <div>
+    <div>
+      Invoice N°
+    </div>
+    <div class="roundedInput">
+      <ion-input type="text" [(ngModel)]="form.estimate_number" name="number"></ion-input>
+    </div>
+  </div>
+  <ion-card class="card-radius modif">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Client
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select [value]="clientDefault" interface="popover" [(ngModel)]="clientSend" name="client">
+              <ion-select-option *ngFor="let client of clients" [value]="client">{{client.display_name}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Reference Number
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input type="text"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card-radius">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Item Price Are
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select value="1" interface="popover" [(ngModel)]="form.tax_type" name="tax_type">
+              <ion-select-option value="1">Without Taxes</ion-select-option>
+              <ion-select-option value="2">Tax Included</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <div>Items</div>
+  <img class="icon-plus" src="../../../../assets/img/+.png" (click)="addItem()">
+  <div *ngFor="let item of items; let i=index">
+    <ion-card class="card-radius">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              Item
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input type="text" [(ngModel)]="form.items[i].title" name="title"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Quantite
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input type="text" [(ngModel)]="form.items[i].qty" name="qty" (ionChange)="setPrice(i);setTotal();setShowTax()"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Unit Price
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input type="text" [(ngModel)]="form.items[i].up" name="up" (ionChange)="setPrice(i);setTotal();setShowTax()"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Tax
+            </ion-col>
+          </ion-row>
+          <div *ngFor="let tax of items[i].Tax; let j=index">
+            <ion-row>
+              <ion-col>
+                <ion-select [value]="taxeDefault" interface="popover" [(ngModel)]="item.Tax[j]" name="taxe" (ionChange)="setTotal();setShowTax()">
+                  <ion-select-option *ngFor="let tax of taxes" [value]="tax">{{tax.rate}} % {{tax.title}}</ion-select-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+          </div>
+          <ion-button (click)="addTax(i)">Add Tax</ion-button>
+          <ion-row>
+            <ion-col>
+              Discount
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input type="text" [(ngModel)]="form.items[i].discount" name="discount" (ionChange)="setPrice(i);setTotal()"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-select value="1" interface="popover" [(ngModel)]="form.items[i].typeDiscount" name="discount" (ionChange)="setPrice(i);setTotal()">
+                <ion-select-option value="1">%</ion-select-option>
+                <ion-select-option value="2">0.000</ion-select-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Price
+            </ion-col>
+          </ion-row>
+          <ion-row class="price">
+            <ion-col>
+              {{form.items[i].Price.toFixed(3)}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-card class="card-radius">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            General Condition
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <textarea></textarea>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card-radius">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Subtotal
+          </ion-col>
+        </ion-row>
+        <ion-row class="price">
+          <ion-col>
+            {{subTotal.toFixed(3)}}TND
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Discount
+          </ion-col>
+        </ion-row>
+        <ion-row class="price">
+          <ion-col>
+            <ion-input type="text" [(ngModel)]="form.discount" name="discount" (ionChange)="setTotal()"></ion-input>
+          </ion-col>
+        </ion-row>
+        <div *ngFor="let show of showTax">
+          <div *ngIf="show.val != 0">
+            <ion-row>
+              <ion-col>
+                {{show.title}}
+              </ion-col>
+            </ion-row>
+            <ion-row class="price">
+              <ion-col>
+                {{show.val.toFixed(3)}}
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+        <ion-row>
+          <ion-col>
+            Total
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="price">
+            {{total.toFixed(3)}}TND
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Paid
+          </ion-col>
+        </ion-row>
+        <ion-row class="price">
+          <ion-col>
+            -0.00$
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            Balance
+          </ion-col>
+        </ion-row>
+        <ion-row class="price">
+          <ion-col>
+            0.00 $
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>

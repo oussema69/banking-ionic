@@ -1,0 +1,292 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Estimate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-1">
+            Date
+          </div>
+          <ion-input type="date" [(ngModel)]="form.date" name="date"></ion-input>
+          <img src="../../assets/img/Icon material-date-range.png" class="icon-input">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-1">
+            Due
+          </div>
+          <ion-input type="date" [(ngModel)]="form.due" name="due"></ion-input>
+          <img src="../../assets/img/Icon material-date-range.png" class="icon-input">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-3">
+            Estimate N°
+          </div>
+          <ion-input type="text" placeholder=" 00005" [(ngModel)]="form.estimate_number" name="number">EST - </ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-1">
+            Client
+          </div>
+          <ion-select [value]="clientDefault" interface="popover" [(ngModel)]="clientSend" name="client">
+            <ion-select-option *ngFor="let client of clients" [value]="client">{{client.display_name}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-3">
+            Reference Number
+          </div>
+          <ion-input type="text" placeholder="Reference Number"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-3">
+            Item prices are:
+          </div>
+          <ion-select value="1" interface="popover" [(ngModel)]="form.tax_type" name="tax_type">
+            <ion-select-option value="1">Without Taxes</ion-select-option>
+            <ion-select-option value="2">Tax Included</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col class="button3-color btn-radius">
+          <button class="btn padding-btn text-light text-btn" (click)="onSubmit()">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="icon-footer">
+          <img src="../../assets/img/Groupe41.png">
+        </ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col class="title">Items</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="sub-title" size="7">Include Items description</ion-col>
+        <ion-col>
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <div class="box-border"  >
+        <ion-row class="box-border">
+          <ion-col size="7">
+            <ion-input type="text" placeholder="item title" class="input-title"  name="title"></ion-input>
+          </ion-col>
+          <ion-col>
+            <div class="col-sub-title">Quantity</div>
+            <div class="num">
+              <ion-input type="number"  name="qty" ></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-2">
+              Description
+            </div>
+            <ion-textarea placeholder="Description" class="content-textarea"></ion-textarea>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-2">
+              Unit Price
+            </div>
+            <ion-input type="text" placeholder="Unit Price"  name="up" ></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7" class="box-border-type-1">
+            <div class="label-1">
+              Discount
+            </div>
+            <ion-input type="text"  name="discount"></ion-input>
+          </ion-col>
+          <ion-col class="box-border-type-2">
+            <ion-select value="1" class="select-1" interface="popover"  name="discount" >
+              <ion-select-option value="1">%</ion-select-option>
+              <ion-select-option value="2">0.0</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-1">
+              Tax
+            </div>
+            <!-- <div *ngFor="let tax of items[i].Tax; let j=index">
+              <ion-select  [value]="taxeDefault" interface="popover" [(ngModel)]="item.Tax[j]" name="taxe" (ionChange)="setTotal()">
+                <ion-select-option *ngFor="let tax of taxes" [value]="tax">foued</ion-select-option>
+              </ion-select>
+            </div> -->
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="last-row-1" >Add Tax</ion-col>
+          <ion-col class="col-3 last-row-2" >Delete</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="card-1-footer">
+            <div class="col-sub-title-1">Item price:</div>
+            <div class="price-item"></div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-col class="footer-item-1" (click)="deleteItem();setTotal()">Remove Item</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="footer-item-col-1" (click)="addItem()">
+          <img src="../../assets/img/Tracé 483.png" class="item-icon-1">
+          Add item
+        </ion-col>
+        <ion-col class="footer-item-col-2" size="6">
+          <img src="../../assets/img/Icon ionic-md-qr-scanner.png" class="item-icon-2">
+          Barcode and QR Code Scanner
+        </ion-col>
+      </ion-row>
+      <div class="box-border">
+        <ion-row>
+          <ion-col class="subtotal">
+            Subtotal:
+          </ion-col>
+          <ion-col>
+            <div class="price-item">
+              {{subTotal.toFixed(2)}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-2">
+              Discount
+            </div>
+            <ion-input type="text" placeholder="Discount" [(ngModel)]="form.discount" name="discount" (ionChange)="setTotal()"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="total">
+            Total:
+          </ion-col>
+          <ion-col>
+            <div class="price-item">
+              {{total.toFixed(2)}}
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-col class="column-1">Attachements:</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col onclick="document.querySelector('#inputFile').click()" class="column-2" size="3">
+          <img src="../../assets/img/Icon metro-attachment.png">
+          Attach file
+        </ion-col>
+        <ion-col>
+          <input type="file" id="inputFile" hidden>
+        </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-3">
+            PDF language
+          </div>
+          <ion-select value="en" interface="popover" [(ngModel)]="language" name="lang" >
+            <ion-select-option value="en">English</ion-select-option>
+            <ion-select-option value="fr">Francais</ion-select-option>
+            <ion-select-option value="ar">Arabe</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-3">
+          Include on the estimate
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">General conditions</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-3">
+            General Conditions
+          </div>
+          <ion-textarea placeholder="General Conditions"></ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">Bank details</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <!-- <ion-col class="box-border-type-1">
+          <ion-select [value]="bankDefault" interface="popover" [(ngModel)]="bankDefault" name="bank">
+            <ion-select-option *ngFor="let bankk of banks" [value]="bankk">{{bankk.bank}}</ion-select-option>
+          </ion-select>
+        </ion-col> -->
+        <ion-col class="box-border-type-2 col-2">
+          <img src="../../assets/img/Tracé 483.png" class="plus">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">Billing address</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">Delivery address</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-end">Notes</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <ion-textarea [(ngModel)]="form.notes"></ion-textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="button1 btn-radius">
+        <button class="btn padding-btn text-btn-1">DRAFT</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="button2 btn-radius" (click)="onSubmit()">
+        <button class="btn padding-btn text-btn-2">VALIDATE</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="button3 btn-radius">
+        <button class="btn padding-btn text-btn-3">SEND</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

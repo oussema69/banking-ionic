@@ -1,0 +1,106 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Client</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card">
+    <form>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="sub-title">
+            Billing Address
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Address" [(ngModel)]="address" name="address"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="State" [(ngModel)]="state" name="state"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Zip Code" [(ngModel)]="zipCode" name="zipCode"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <div class="label-2">
+              Country
+            </div>
+            <ion-select [value]="countryDefault" interface="popover" [(ngModel)]="countrySend" name="country">
+              <ion-select-option *ngFor="let country of countries" [value]="country">{{country.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="icon-footer">
+          <img src="../../assets/img/Groupe3.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+<!-- <ion-content>
+  Delivery Address
+  <div class="link" (click)="copy()">Copy billing address</div>
+  <ion-card class="card-radius">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          Address
+        </ion-row>
+        <ion-row>
+          <ion-input type="text" [(ngModel)]="address" name="address"></ion-input>
+        </ion-row>
+        <ion-row>
+          State
+        </ion-row>
+        <ion-row>
+          <ion-input type="text" [(ngModel)]="state" name="state"></ion-input>
+        </ion-row>
+        <ion-row>
+          Zip Code
+        </ion-row>
+        <ion-row>
+          <ion-input type="text" [(ngModel)]="zipCode" name="zipCode"></ion-input>
+        </ion-row>
+        <ion-row>
+          Country
+        </ion-row>
+        <ion-row>
+          <ion-select [value]="countryDefault" interface="popover" [(ngModel)]="countrySend" name="country">
+            <ion-select-option *ngFor="let country of countries" [value]="country">{{country.title}}</ion-select-option>
+          </ion-select>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+        <button class="btn padding-btn" type="submit"><span class="text-btn text-light">Finish</span></button><img class="image-btn" src="../../assets/img/Group2.png">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->

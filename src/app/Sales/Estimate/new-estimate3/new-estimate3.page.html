@@ -1,0 +1,94 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Estimate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="column-1">Attachements:</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col onclick="document.querySelector('#inputFile').click()" class="column-2" size="3">
+          <img src="../../assets/img/Icon metro-attachment.png">
+          Attach file
+        </ion-col>
+        <ion-col>
+          <input type="file" id="inputFile" hidden>
+        </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-3">
+            PDF language
+          </div>
+          <ion-select value="en" interface="popover" [(ngModel)]="language" name="lang" >
+            <ion-select-option value="en">English</ion-select-option>
+            <ion-select-option value="fr">Francais</ion-select-option>
+            <ion-select-option value="ar">Arabe</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-3">
+          Include on the estimate
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">General conditions</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <div class="label-3">
+            General Conditions
+          </div>
+          <ion-textarea placeholder="General Conditions"></ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">Bank details</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border-type-1">
+          <ion-select [value]="bankDefault" interface="popover" [(ngModel)]="bankDefault" name="bank">
+            <ion-select-option *ngFor="let bankk of banks" [value]="bankk">{{bankk.bank}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col class="box-border-type-2 col-2">
+          <img src="../../assets/img/Tracé 483.png" class="plus">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">Billing address</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="column-toggle">Delivery address</ion-col>
+        <ion-col class="toggle">
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="button3-color btn-radius">
+          <button class="btn padding-btn text-light text-btn" (click)="onSubmit()">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="icon-footer">
+          <img src="../../assets/img/Groupe43.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

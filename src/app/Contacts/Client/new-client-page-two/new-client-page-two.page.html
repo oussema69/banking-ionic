@@ -1,0 +1,119 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Client</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card">
+    <form>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="sub-title">
+            Professional Information
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <div class="label-1">
+              Type
+            </div>
+            <ion-select value="1" [(ngModel)]="professional" name="professional">
+              <ion-select-option value="1">Professional</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Tax identification number" [(ngModel)]="tax" name="tax"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <div class="label-2">
+              Activity
+            </div>
+            <ion-select [value]="activityDefault" [(ngModel)]="activityDefault" name="activity" interface="popover">
+              <ion-select-option *ngFor="let activity of activities" [value]="activityDefault">{{activity.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <div class="label-3">
+              Main Currency
+            </div>
+            <ion-select [value]="currencyDefault" [(ngModel)]="currencyDefault" name="currency" interface="popover">
+              <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{currency.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <div class="label-3">
+              Payment Conditions
+            </div>
+            <ion-select [value]="deadlineDefault" [(ngModel)]="deadlineDefault" name="payment" interface="popover">
+              <ion-select-option *ngFor="let deadline of deadlines" [value]="deadline">{{deadline.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+            <button class="btn padding-btn text-light text-btn">Continue</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="icon-footer">
+            <img src="../../assets/img/Groupe2.png">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+<!-- <ion-content>
+  Billing Address
+  <div class="link" (click)="copy()">Copy delivery address</div>
+  <ion-card class="card-radius">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          Address
+        </ion-row>
+        <ion-row>
+          <ion-input type="text" [(ngModel)]="address" name="address"></ion-input>
+        </ion-row>
+        <ion-row>
+          State
+        </ion-row>
+        <ion-row>
+          <ion-input type="text" [(ngModel)]="state" name="state"></ion-input>
+        </ion-row>
+        <ion-row>
+          Zip Code
+        </ion-row>
+        <ion-row>
+          <ion-input type="text" [(ngModel)]="zipCode" name="zipCode"></ion-input>
+        </ion-row>
+        <ion-row>
+          Country
+        </ion-row>
+        <ion-row>
+          <ion-select [value]="countryDefault" interface="popover" [(ngModel)]="countrySend" name="country">
+            <ion-select-option *ngFor="let country of countries" [value]="country">{{country.title}}</ion-select-option>
+          </ion-select>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+        <button class="btn padding-btn" type="submit"><span class="text-btn text-light">Next</span></button><img class="image-btn" src="../../assets/img/Group2.png">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->

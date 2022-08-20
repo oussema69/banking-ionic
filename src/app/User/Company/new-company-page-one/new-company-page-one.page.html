@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar (click)="goBack()">
+    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent">
+    <ion-title>New Company</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <div class="rounded-card"> 
+    <form [formGroup]="formData" (ngSubmit)="onSubmit">
+      <ion-grid class="content">
+        <ion-row>
+          <ion-col class="img-col">
+            <img class="image" src="../../assets/img/Groupe 17.png" onclick="document.querySelector('#inputFile').click()">
+            <div onclick="document.querySelector('#inputFile').click()" class="logo-text">
+              Add logo photo
+            </div>
+            <input type="file" class="input-col" id="inputFile" hidden>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="sub-title">
+            General Information
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Company Name" formControlName="companyName"></ion-input>
+          </ion-col>
+        </ion-row>
+        <div class="label">
+        PDF Language
+        </div>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-select value="en" formControlName="pdfLang" class="select-option" interface="popover">
+              <ion-select-option value="en">English</ion-select-option>
+              <ion-select-option value="fr">Français</ion-select-option>
+              <ion-select-option value="ar">Arabe</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-4">
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Phone Number" formControlName="phoneNumber"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-5">
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Web Site" formControlName="webSite"></ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+        <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Client</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card">
+    <form>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="sub-title">
+            Notes
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-textarea placeholder="You may put here any comments you think are relevant. (Optional)"></ion-textarea>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="icon-footer">
+          <img src="../../assets/img/Groupe5.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

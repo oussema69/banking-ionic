@@ -1,0 +1,137 @@
+.button3-color{
+    background-color: #306FEA ;
+    margin-right: 8%;
+    margin-left: 8%;
+    text-align: center;
+}
+
+.btn-radius{
+    border-radius: 35px;
+}
+
+.text-btn{
+    font-size: 12px;
+    font-family: 'Medium';
+}
+
+.rounded-card {
+    --background: #FFFFFF;
+    box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    text-align: center;
+    height: 99.5%;
+}
+
+.ionheader{
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translate(0px, 20%);
+}
+
+ion-title{
+    text-align: center;
+}
+
+.precedent{
+    float: left;
+    position: relative;
+    left: 5%;
+    top: 5px;
+}
+
+#container {
+    text-align: left;
+    position: absolute;
+    left: 0;
+    right: 0;
+    transform: translateY(5%);
+}
+
+.info-1{
+    transform: translateY(-35%);
+    color: #A6BCD0;
+    font-family: 'Medium';
+}
+
+.info-2{
+    transform: translateY(-70%);
+    color: #A6BCD0;
+    font-family: 'Light';
+    font-size: 90%;
+}
+
+.info-2-1{
+    transform: translateY(-70%);
+    color: #A6BCD0;
+    font-family: 'Light';
+    font-size: 80%;
+}
+
+.label{
+    font-size: 100%;
+    color: #A6BCD0;
+    font-weight: 590;
+    font-family: 'Medium';
+    position: relative;
+    left: 7%;
+}
+
+.select{
+    transform: translateX(145%);
+    margin: 7%;
+    background-color: #F0F4F8;
+    border-radius: 10%;
+    color: #A6BCD0;
+    width: 35%;
+}
+
+.plan{
+    transform: translateY(-5%);
+}
+
+.card{
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    border-radius: 5%;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 140px;
+}
+
+.card-end{
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    border-radius: 5%;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 130px;
+    margin-bottom: 10%;
+}
+
+.title-card{
+    font-family: 'Medium';
+    color: #0E78E0;
+}
+
+.card-content-ios{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.input-border{
+    border: solid rgb(14, 120, 224, 0.4);
+    border-radius: 5px;
+}
+
+ion-header{
+    padding-top: 3%;
+}
+
+.title{
+    color: #0B1D39;
+    font-size: 24px;
+    font-family: 'Demi';
+    position: relative;
+    right: 6%;
+}

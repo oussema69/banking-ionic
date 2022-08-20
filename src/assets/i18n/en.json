@@ -1,0 +1,68 @@
+{
+    "HOME": {
+        "title": "Sign In",
+        "input1": "Email",
+        "alrt1inp1": "Email is required",
+        "alrt2inp1": "Email invalid",
+        "alrt3inp1": "Must be more than 6 characters",
+        "input2": "Password",
+        "alrt1inp2": "Password is required",
+        "alrt2inp2": "Must be more than 6 characters",
+        "forgot": "Forgot password?",
+        "info3": "Or continue with:",
+        "btn1": "FACEBOOK",
+        "btn2": "GOOGLE",
+        "btn3": "SIGN IN",
+        "info2": "CREATE AN ACCOUNT"
+    },
+    "REGIS": {
+        "title": "Create new account",
+        "body": "Enter your information to create new account",
+        "input1": "Your name",
+        "alrt1inp1": "Name is required",
+        "input2": "Your email",
+        "alrt1inp2": "Email is required",
+        "alrt2inp2": "Email invalid",
+        "alrt3inp2": "Must be more than 6 characters",
+        "input3": "Your password",
+        "alrt1inp3": "Password is required",
+        "alrt2inp3": "Must be more than 6 characters",
+        "show": "Show",
+        "hide": "Hide",
+        "info3": "Or continue with:",
+        "btn1": "FACEBOOK",
+        "btn2": "GOOGLE",
+        "btn3": "CREATE AN ACCOUNT",
+        "info1": "Already have an account? ",
+        "info2": "SIGN IN"
+    },
+    "VALID": {
+        "title": "Verify email",
+        "body": "Please enter the 4 digits code we sent to your email",
+        "info": "RESEND CODE",
+        "btn": "CONFIRM"
+    },
+    "FORGOT": {
+        "title": "Reset your password",
+        "body1": "Lost your Password ? Forgot it ? No worries",
+        "body2": "Enter your email address in the space below",
+        "body3": "And we will email you the instructions to",
+        "body4": "Reset the password",
+        "input": "Email",
+        "btn": "SUBMIT"
+    },
+    "DASH": {
+        "title": "Dashboard",
+        "subTitle": "Hello ",
+        "titleCard1": "Current Exercise Sales Analytics",
+        "subTitle1Card1": "Estimates",
+        "subTitle2Card1": "Invoices",
+        "subTitle3Card1": "Payments",
+        "indCard": "TND",
+        "title1":"Overall Statistics",
+        "title1ListCard": "Total Balance",
+        "title2ListCard": "Incomes",
+        "title3ListCard": "Outcomes",
+        "titleCard2": "Main Expenses Categories"
+    }
+}

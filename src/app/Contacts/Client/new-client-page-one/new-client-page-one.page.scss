@@ -1,0 +1,129 @@
+ion-title{
+    text-align: center;
+    transform: translate(-45px, 5%);
+    color: #0B1D39;
+    font-family: 'Demi';
+    font-size: 150%;
+    font-weight: 600;
+}
+
+ion-header{
+    padding-top: 5%;
+}
+
+.icon-menu{
+    float: left;
+    position: relative;
+    left: 30px;
+    top: 5px;
+}
+
+.rounded-card{
+    --background: #FFFFFF;
+    box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 137%;
+    margin-bottom: 5%;
+}
+
+.sub-title{
+    transform: translateX(5%);
+    font-family: 'Medium';
+    font-weight: 599;
+    margin-top: 4%;
+}
+
+.input-border{
+    border: solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+.label-1{
+    transform: translate(40%, -90%);
+    font-size: 70%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: "Book";
+    color: #00000099;
+    font-weight: 900;
+    position: absolute;
+    background-color: white;
+}
+
+.label-2{
+    transform: translate(20%, -90%);
+    font-size: 70%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: "Book";
+    color: #00000099;
+    font-weight: 900;
+    position: absolute;
+    background-color: white;
+}
+
+.label-3{
+    transform: translate(15%, -90%);
+    font-size: 70%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: "Book";
+    color: #00000099;
+    font-weight: 900;
+    position: absolute;
+    background-color: white;
+}
+
+ion-input{
+    --placeholder-color: #00000099;
+    --ion-font-family: 'Book';
+    font-weight: 550;
+    margin-left: 4%;
+}
+
+ion-textarea{
+    --placeholder-color: #00000099;
+    --ion-font-family: 'Book';
+    font-weight: 550;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-right: 5%;
+}
+
+ion-select{
+    --ion-font-family: 'Book';
+    font-weight: 550;
+}
+
+.button3-color{
+    transform: translate(0%, 30%);
+    background-color: #0E78E0 ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+}
+
+.btn-radius{
+    border-radius: 50px;
+}
+
+.padding-btn{
+    padding: 10px;
+}
+
+.text-btn{
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Medium';
+}
+
+.icon-footer{
+    text-align: center;
+}

@@ -1,0 +1,373 @@
+.icon-menu{
+    float: left;
+    position: relative;
+    left: 35px;
+    top: 5px;
+}
+
+ion-header{
+    padding-top: 5%;
+}
+
+ion-title{
+    text-align: center;
+    transform: translate(-10%, 5%);
+    color: #0B1D39;
+    font-family: 'Demi';
+    font-size: 130%;
+    font-weight: 600;
+}
+
+.rounded-card{
+    --background: #FFFFFF;
+    box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 110%;
+}
+
+.box-border{
+    border: solid rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.label-1{
+    transform: translate(40%, -90%);
+    font-size: 70%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: "Book";
+    color: #00000099;
+    font-weight: 900;
+    position: absolute;
+    background-color: white;
+}
+
+.label-2{
+    transform: translate(20%, -90%);
+    font-size: 70%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: "Book";
+    color: #00000099;
+    font-weight: 900;
+    position: absolute;
+    background-color: white;
+}
+
+.label-3{
+    transform: translate(15%, -90%);
+    font-size: 70%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: "Book";
+    color: #00000099;
+    font-weight: 900;
+    position: absolute;
+    background-color: white;
+}
+
+ion-input{
+    --placeholder-color: #00000099;
+    --ion-font-family: 'Book';
+    font-weight: 550;
+    margin-left: 4%;
+}
+
+ion-select{
+    --ion-font-family: 'Book';
+}
+
+ion-textarea{
+    --ion-font-family: 'Book';
+}
+
+.button3-color{
+    transform: translate(0%, 30%);
+    background-color: #0E78E0 ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+}
+
+.btn-radius{
+    border-radius: 50px;
+}
+
+.padding-btn{
+    padding: 10px;
+}
+
+.text-btn{
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Medium';
+}
+
+.icon-footer{
+    text-align: center;
+}
+
+.icon-input{
+    position: absolute;
+    top: 30%;
+    right: 6%;
+}
+
+ion-toggle{
+    float: right;
+}
+
+.box-border-type-1{
+    border: solid rgba(0, 0, 0, .12);
+    border-radius: 5px 0px 0px 5px;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.box-border-type-2{
+    border: solid rgba(0, 0, 0, .12);
+    border-radius: 0px 5px 5px 0px;
+    margin-top: 15px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+.select-1{
+    color: #00000099;
+}
+
+.col-sub-title{
+    font-size: 70%;
+    color: #00000099;
+    font-family: 'Book';
+    transform: translate(25%, 0%);
+    font-weight: 600;
+}
+
+.col-sub-title-1{
+    font-size: 70%;
+    color: #00000099;
+    font-family: 'Book';
+    text-align: center;
+    font-weight: 600;
+}
+
+.num{
+    background-color: #0E78E0;
+    border-radius: 10px;
+    color: white;
+    transform: translate(-4%, 0%);
+    padding-left: 25%;
+    height: 60%;
+}
+
+.last-row-1{
+    color: #0E78E0;
+    font-size: 70%;
+    margin-left: 10%;
+    transform: translate(0%, -40%);
+}
+
+.last-row-2{
+    color: #E56353;
+    font-size: 70%;
+    transform: translate(0%, -40%);
+}
+
+.card-1-footer{
+    margin-left: 50%;
+}
+
+.price-item{
+    text-align: center;
+    background-color: #0E78E0;
+    color: white;
+    width: 70%;
+    transform: translate(20%, 0%);
+    border-radius: 10px;
+    padding: 4%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.title{
+    color: #0B1D39;
+    font-family: 'Medium';
+    margin-left: 6%;
+    margin-top: 5%;
+}
+
+.sub-title{
+    color: #00000099;
+    font-family: 'Book';
+    margin-left: 6%;
+}
+
+.footer-item-1{
+    color: #E56353;
+    text-align: right;
+    transform: translate(-7%, -30%);
+    font-family: 'Book';
+}
+
+.footer-item-col-1{
+    color: #0E78E0;
+    background-color: #F0F4F8;
+    font-family: 'Book';
+    text-align: center;
+    margin-right: 2%;
+    margin-left: 25px;
+    border-radius: 10px;
+}
+
+.footer-item-col-2{
+    color: #A6BCD0;
+    background-color: #F0F4F8;
+    font-family: 'Book';
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 25px;
+    font-size: 70%;
+    padding-top: 2.4%;
+    border-radius: 10px;
+}
+
+.item-icon-1{
+    width: 15%;
+    transform: translate(-90%, -10%);
+}
+
+.item-icon-2{
+    transform: translate(-30%, -10%);
+}
+
+.total{
+    font-weight: 900;
+    transform: translate(16%, 15%);
+    font-size: 150%;
+    font-family: 'Medium';
+    margin-bottom: 6%;
+}
+
+.subtotal{
+    color: #00000099;
+    font-size: 90%;
+    transform: translate(15%, 30%);
+    font-family: 'Book';
+    font-weight: 600;
+}
+
+.content-textarea{
+    transform: translate(4%, -15%);
+}
+
+.input-title{
+    transform: translate(0%, 20%);
+}
+
+.column-1{
+    color: #00000099;
+    font-family: 'Book';
+    margin-left: 10%;
+}
+
+.column-2{
+    background-color: #F0F4F8;
+    color: #A6BCD0;
+    font-family: 'Book';
+    border-radius: 10px;
+    margin-left: 10%;
+}
+
+.column-3{
+    font-weight: 600;
+    font-family: "Book";
+    margin-left: 10%;
+}
+
+.column-toggle{
+    color: #00000099;
+    font-family: 'Book';
+    margin-left: 10%;
+}
+
+.toggle{
+    margin-right: 10%;
+}
+
+.plus{
+    transform: translate(15%, 40%);
+}
+
+.column-end{
+    color: #0B1D39;
+    font-weight: 600;
+    margin-left: 10%;
+}
+
+.button1{
+    transform: translate(0%, 30%);
+    background-color: #F0F4F8;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+}
+
+.button2{
+    transform: translate(0%, 30%);
+    border: 1px solid #44C4A1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+}
+
+.button3{
+    transform: translate(0%, 30%);
+    background-color: #44C4A1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+}
+
+.btn-radius{
+    border-radius: 50px;
+}
+
+.padding-btn{
+    padding: 10px;
+}
+
+.text-btn-1{
+    color: #A6BCD0;
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Medium';
+}
+
+.text-btn-2{
+    color: #44C4A1;
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Medium';
+}
+
+.text-btn-3{
+    color: white;
+    font-weight: 100;
+    font-size: 12px;
+    font-family: 'Medium';
+}

@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Estimate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="column-1">Notes</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="box-border">
+          <ion-textarea [(ngModel)]="form.notes"></ion-textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="button1 btn-radius">
+        <button class="btn padding-btn text-btn-1">DRAFT</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="button2 btn-radius" (click)="onSubmit()">
+        <button class="btn padding-btn text-btn-2">VALIDATE</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="button3 btn-radius">
+        <button class="btn padding-btn text-btn-3">SEND</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="icon-footer">
+        <img src="../../assets/img/Groupe44.png">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

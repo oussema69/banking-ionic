@@ -1,0 +1,84 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar (click)="goBack()">
+    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent">
+    <ion-title class="title">
+      Subscription plans
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="rounded-card">
+    <div id="container">
+      <form [formGroup]="formData" (ngSubmit)="onSubmit"> 
+        <ion-label class="label container-1">
+          Please choose the plan that fulfills your business <br>need
+        </ion-label>
+        <ion-select class="select" value="1" interface="popover" formControlName="type">
+          <ion-select-option value="1">Annually</ion-select-option>
+          <ion-select-option value="0">Monthly</ion-select-option>
+        </ion-select>
+        <ion-list lines="none" class="plan">
+          <ion-radio-group value="Dl" formControlName="plan">
+            <ion-card class="card input-border" id="free">
+              <ion-card-content>
+                <ion-item (click)="setBorder('free')">
+                  <ion-label class="title-card">Free</ion-label>
+                  <ion-radio slot="start" color="tertiary" value="Dl"></ion-radio>
+                </ion-item>
+                <ion-item class="info-1">
+                  0.00 DT / Year
+                </ion-item>
+                <ion-item class="info-2">
+                  The best plan to try everything at Birou.
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card class="card" id="startup">
+              <ion-card-content>
+                <ion-item (click)="setBorder('startup')">
+                  <ion-label class="title-card">Startup</ion-label>
+                  <ion-radio slot="start" color="tertiary" value="Er"></ion-radio>
+                </ion-item>
+                <ion-item class="info-1">
+                  259.90 DT / Year
+                </ion-item>
+                <ion-item class="info-2">
+                  The most popular subscription at Birou.
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+            <ion-card class="card-end" id="professional">
+              <ion-card-content>
+                <ion-item (click)="setBorder('professional')">
+                  <ion-label class="title-card">Professional</ion-label>
+                  <ion-radio slot="start" color="tertiary" value="GZ"></ion-radio>
+                </ion-item>
+                <ion-item class="info-1">
+                  259.90 DT / Year
+                </ion-item>
+                <ion-item class="info-2-1">
+                  The plan that gives you everything you may need.
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-radio-group>
+        </ion-list>
+      </form> 
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+          <button class="btn" type="submit"><span class="text-btn text-light">CONTINUE</span></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

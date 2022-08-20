@@ -1,0 +1,228 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>{{name}}</ion-title>
+    <img src="../../assets/img/Tracé 468.png" class="menu">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card"> 
+     <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+       <ion-grid>
+         <ion-row>
+           <ion-col class="sub-title">
+             General Information
+           </ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col class="input-border">
+            <div class="label-1">
+              Title
+            </div>
+             <ion-select value="1" formControlName="title" interface="popover">
+               <ion-select-option value="1">Mr.</ion-select-option>
+               <ion-select-option value="2">Mlle.</ion-select-option>
+               <ion-select-option value="3">M.</ion-select-option>
+             </ion-select>
+           </ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col class="input-border">
+            <div class="label-2">
+              First Name
+            </div>
+             <ion-input type="text" placeholder="First Name" formControlName="first_name"></ion-input>
+           </ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col class="input-border">
+            <div class="label-2">
+              Last Name
+            </div>
+            <ion-input type="text" placeholder="Last Name" formControlName="last_name"></ion-input>
+           </ion-col>
+         </ion-row>
+         <ion-row>
+           <ion-col class="input-border">
+            <div class="label-3">
+              Main Currency
+            </div>
+            <ion-select value="1">
+              <ion-select-option value="1">Tunisian Dinar</ion-select-option>
+            </ion-select>
+           </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="input-border">
+           <div class="label-2">
+            Company
+           </div>
+           <ion-input type="text" placeholder="Company" formControlName="organisation"></ion-input>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="input-border">
+           <div class="label-3">
+            Display Name
+           </div>
+           <ion-select [value]="display_name" formControlName="display_name" interface="popover">
+            <ion-select-option *ngIf="displayNameDefault1" value="1">{{displayNameDefault1}}</ion-select-option>
+            <ion-select-option *ngIf="displayNameDefault2" value="2">{{displayNameDefault2}}</ion-select-option>
+            <ion-select-option *ngIf="displayNameDefault3" value="3">{{displayNameDefault3}}</ion-select-option>
+          </ion-select>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="input-border">
+           <ion-input type="text" placeholder="Email"></ion-input>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="input-border">
+           <ion-input type="text" placeholder="Phone"></ion-input>
+          </ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="input-border">
+           <ion-input type="text" placeholder="Website"></ion-input>
+          </ion-col>
+         </ion-row>
+        <ion-row>
+          <ion-col class="sub-title">
+            Professional Information
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+           <div class="label-1">
+             Type
+           </div>
+            <ion-select value="1">
+              <ion-select-option value="1">Professional</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Tax identification number"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+           <div class="label-2">
+            Activity
+           </div>
+            <ion-select [value]="activityDefault" interface="popover" formControlName="activity">
+              <ion-select-option *ngFor="let activity of activities" [value]="activity">{{activity.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+           <div class="label-3">
+            Main Currency
+           </div>
+            <ion-select [value]="currencyDefault" interface="popover" formControlName="currency">
+              <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{currency.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+           <div class="label-3">
+            Payment Conditions
+           </div>
+            <ion-select [value]="deadlineDefault" interface="popover" formControlName="deadline">
+              <ion-select-option *ngFor="let deadline of deadlines" [value]="deadline">{{deadline.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="sub-title">
+            Billing Address
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Address"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="State"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Zip Code"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+           <div class="label-2">
+             Country
+           </div>
+            <ion-select value="1">
+              <ion-select-option value="1">Tunisia</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="sub-title">
+            Delivery Address
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Address"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="State"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Zip Code"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+           <div class="label-2">
+             Country
+           </div>
+            <ion-select value="1">
+              <ion-select-option value="1">Tunisia</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="sub-title">
+            Notes
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-textarea rows="6" cols="20" placeholder="You may put here any comments you think are relevant. (Optional)">
+
+            </ion-textarea>
+          </ion-col>
+        </ion-row>
+       </ion-grid>
+     </form>
+   </div>
+ </ion-content>
+
+ <ion-footer class="ion-no-border">
+   <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   </ion-toolbar>
+ </ion-footer>

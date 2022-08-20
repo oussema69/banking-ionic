@@ -1,0 +1,92 @@
+.icon-menu{
+    float: left;
+    position: relative;
+    left: 30px;
+    top: 5px;
+}
+
+.menu{
+    transform: translate(-500%, -110%);
+    float: right;
+}
+
+ion-title{
+    text-align: center;
+    transform: translate(-45px, 5%);
+    color: #0B1D39;
+    font-family: 'Demi';
+    font-size: 130%;
+    font-weight: 600;
+}
+
+ion-header{
+    padding-top: 5%;
+}
+
+.circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 64px;
+}
+
+.vertical-line{
+    background-color: #707070;
+    width: 1px;
+    height: 50px;
+    position: relative;
+    left: 7px;
+}
+
+.title{
+    color: #0B1D39;
+    font-family: 'Medium';
+    font-weight: 600;
+}
+
+.date{
+    color: #707070;
+    font-family: 'Book';
+    font-size: 60%;
+}
+
+.price{
+    color: #FFFFFF;
+    font-family: 'Medium';
+    border-radius: 7px;
+    width: 70%;
+    text-align: center;
+    transform: translate(25%, 30%);
+}
+
+.inv-color{
+    background-color: #0E78E0;
+}
+
+.pay-color{
+    background-color: #44C4A1;
+}
+
+.est-color{
+    background-color: #E56353;
+}
+
+.wwhite{
+    background-color: white;
+}
+
+.content{
+    transform: translate(0%, 8%);
+}
+
+.content-1{
+    transform: translate(2%, 0%);
+}
+
+.margin-tab-row{
+    margin-top: -3%;
+}
+
+.margin-tab{
+    margin-top: 5%;
+    margin-left: 3%;
+}

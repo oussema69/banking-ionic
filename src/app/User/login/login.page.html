@@ -1,0 +1,72 @@
+<ion-content [fullscreen]="true">
+  <div class="rounded-card">
+    <p class="icons-lang">
+      <img src="../../assets/img/Icons-Flag-Tunisia.png" class="flag" (click)="setLang('ar')">
+      <img src="../../assets/img/Icons-Flag-United-states-of-america.png" class="flag" (click)="setLang('en')">
+      <img src="../../assets/img/Icons-Flag-France.png" class="flag" (click)="setLang('fr')">
+    </p>
+    <div class="ionheader" collapse="condense">
+      {{'HOME.title' | translate}}
+    </div>
+    <div id="containerCss">
+      <form [formGroup]="formData" (ngSubmit)="onSubmit">  
+        <div>
+          <ion-list class="ion-no-margin">
+            <ion-item lines="none">
+              <ion-input part="foued" type="text" placeholder="{{ 'HOME.input1' | translate}}" class="rounded-card-1" formControlName="email" minlength="7" (ionChange)="validateEmail()" #emailInput><img src="../../assets/img/icon-mail.png" class="icon-input"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="email.errors?.required && email.touched" class="error">{{ 'HOME.alrt1inp1' | translate}}</ion-item>
+            <ion-item *ngIf="email.errors?.pattern && email.touched && !email.errors?.['minlength']" class="error">{{ 'HOME.alrt2inp1' | translate}}</ion-item>
+            <ion-item *ngIf="email.errors?.['minlength'] && email.touched" class="error">{{ 'HOME.alrt3inp1' | translate}}</ion-item>
+          </ion-list>
+        </div>
+        <div>
+          <ion-list class="ion-no-margin">
+            <ion-item lines="none">
+              <ion-input type="password" placeholder="{{ 'HOME.input2' | translate}}" class="rounded-card-1" formControlName="password" minlength="7" (ionChange)="validatePassword()" #passwordInput><img src="../../assets/img/icon-padlock.png" class="icon-input"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="password.errors?.required && password.touched" class="error">{{ 'HOME.alrt1inp2' | translate}}</ion-item>
+            <ion-item *ngIf="password.errors?.['minlength'] && password.touched" class="error">{{ 'HOME.alrt2inp2' | translate}}</ion-item>
+          </ion-list>
+        </div>
+        <ion-label class="label container-1" (click)="resetPassword()">
+          {{ 'HOME.forgot' | translate}}
+        </ion-label>
+        <div >
+        <ion-grid>
+          <div class="container-2">
+            <ion-row>
+              <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+                <button class="btn" type="submit"><span class="text-btn text-light">{{ 'HOME.btn3' | translate}}</span></button>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div class="container-3">
+            <ion-label class="label label-footer">
+              {{'HOME.info3' | translate}}
+            </ion-label>
+            <ion-row>
+              <ion-col class="button1-color btn-radius">
+                <img src="../../assets/img/Icon awesome-facebook-f.png">
+                <a class="btn" (click)="facebookSignup()"><span class="text-light text-btn">{{ 'HOME.btn1' | translate}}</span></a>
+              </ion-col>
+              <ion-col class="button2-color btn-radius">
+                <img src="../../assets/img/Icon awesome-google.png">
+                <a class="btn" (click)="googleSignup()"><span class="text-light text-btn">{{ 'HOME.btn2' | translate}}</span></a>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-grid>
+        </div>
+      </form> 
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      <ion-text routerLink="/registration" routerLinkActive="active" class="label-1">{{ 'HOME.info2' | translate}}</ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

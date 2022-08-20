@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-menu-toggle>
+    <ion-title>Foued Amami</ion-title>
+    </ion-menu-toggle>
+    <img src="../../assets/img/Tracé 468.png" class="menu">
+  </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="input-border-search" size="6">
+        <ion-input placeholder="Search" class="input-search">
+          <img src="../../assets/img/Icon awesome-search.png" class="search-img">
+        </ion-input>
+      </ion-col>
+      <ion-col class="input-border-status">
+        <ion-label class="display-name-label">Status</ion-label>
+        <img src="../../assets/img/Icon metro-sort-desc.png" class="icon-status">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+      <ion-row *ngFor="let payment of payments; let i = index" class="input-border" id="{{i}}"> 
+        <ion-col>
+          <div class="display-invoice">{{payment.payment_number}}</div>
+          <div class="date">Date: {{payment.date.substring(0, payment.date.indexOf('T'))}}</div>
+          <div class="date">Sales: <span class="invoice">{{payment.payment_number}}</span></div>
+        </ion-col>
+        <ion-col>
+          <div class="price-1">{{(+payment.total.substring(0, payment.total.indexOf('TND'))).toFixed(2)}} TND</div>
+          <img src="../../assets/img/Tracé 468.png" class="menu-item">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

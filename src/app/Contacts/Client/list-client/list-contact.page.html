@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon open-menu.png" class="icon-menu">
+    <ion-menu-toggle>
+    <ion-title>Clients</ion-title>
+    </ion-menu-toggle>
+    <img src="../../assets/img/Tracé 468.png" class="menu">
+  </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="input-border-search" size="6">
+        <ion-input placeholder="Search" class="input-search">
+          <img src="../../assets/img/Icon awesome-search.png" class="search-img">
+        </ion-input>
+      </ion-col>
+      <ion-col class="input-border-display-name">
+        <ion-label class="display-name-label">Display Name</ion-label>
+        <img src="../../assets/img/Icon metro-sort-desc.png" >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+      <ion-row *ngFor="let client of clients; let i = index" class="input-border" id="{{i}}">
+        <ion-col>
+          <div class="display-name">{{client.first_name}} {{client.last_name}}</div>
+          <div class="company">{{client.organisation}}</div>
+        </ion-col>
+        <ion-col>
+          <div *ngIf="client.unpaid == 0" class="price-1">{{client.unpaid.toFixed(2)}} TND</div>
+          <div *ngIf="client.unpaid != 0" class="price-2">{{client.unpaid.toFixed(2)}} TND</div>
+          <img src="../../assets/img/Tracé 468.png" class="menu-item" (click)="openPopover($event, client.hashed_id, i)">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="newClient()">
+        <img src="../../assets/img/Groupe 168.png" class="icone-add">
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

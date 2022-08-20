@@ -1,0 +1,140 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>New Estimate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="rounded-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="title">Items</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="sub-title" size="7">Include Items description</ion-col>
+        <ion-col>
+          <ion-toggle name="description" checked></ion-toggle>
+        </ion-col>
+      </ion-row>
+      <div class="box-border"  *ngFor="let item of items; let i=index">
+        <ion-row class="box-border">
+          <ion-col size="7">
+            <ion-input type="text" placeholder="item title" class="input-title" [(ngModel)]="form.items[i].title" name="title"></ion-input>
+          </ion-col>
+          <ion-col>
+            <div class="col-sub-title">Quantity</div>
+            <div class="num">
+              <ion-input type="number" [(ngModel)]="form.items[i].qty" name="qty" (ionChange)="setPrice(i);setTotal()"></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-2">
+              Description
+            </div>
+            <ion-textarea placeholder="Description" class="content-textarea"></ion-textarea>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-2">
+              Unit Price
+            </div>
+            <ion-input type="text" placeholder="Unit Price" [(ngModel)]="form.items[i].up" name="up" (ionChange)="setPrice(i);setTotal()"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="7" class="box-border-type-1">
+            <div class="label-1">
+              Discount
+            </div>
+            <ion-input type="text" [(ngModel)]="form.items[i].discount" name="discount" (ionChange)="setPrice(i);setTotal()"></ion-input>
+          </ion-col>
+          <ion-col class="box-border-type-2">
+            <ion-select value="1" class="select-1" interface="popover" [(ngModel)]="form.items[i].typeDiscount" name="discount" (ionChange)="setPrice(i);setTotal()">
+              <ion-select-option value="1">%</ion-select-option>
+              <ion-select-option value="2">0.0</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-1">
+              Tax
+            </div>
+            <div *ngFor="let tax of items[i].Tax; let j=index">
+              <ion-select  [value]="taxeDefault" interface="popover" [(ngModel)]="item.Tax[j]" name="taxe" (ionChange)="setTotal()">
+                <ion-select-option *ngFor="let tax of taxes" [value]="tax">{{tax.rate}} % {{tax.title}}</ion-select-option>
+              </ion-select>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="last-row-1" (click)="addTax(i);setTotal()">Add Tax</ion-col>
+          <ion-col class="col-3 last-row-2" (click)="deleteTax(i);setTotal()">Delete</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="card-1-footer">
+            <div class="col-sub-title-1">Item price:</div>
+            <div class="price-item">{{form.items[i].Price.toFixed(2)}}</div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-col class="footer-item-1" (click)="deleteItem();setTotal()">Remove Item</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="footer-item-col-1" (click)="addItem()">
+          <img src="../../assets/img/Tracé 483.png" class="item-icon-1">
+          Add item
+        </ion-col>
+        <ion-col class="footer-item-col-2" size="6">
+          <img src="../../assets/img/Icon ionic-md-qr-scanner.png" class="item-icon-2">
+          Barcode and QR Code Scanner
+        </ion-col>
+      </ion-row>
+      <div class="box-border">
+        <ion-row>
+          <ion-col class="subtotal">
+            Subtotal:
+          </ion-col>
+          <ion-col>
+            <div class="price-item">
+              {{subTotal.toFixed(2)}}
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="box-border">
+            <div class="label-2">
+              Discount
+            </div>
+            <ion-input type="text" placeholder="Discount" [(ngModel)]="form.discount" name="discount" (ionChange)="setTotal()"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="total">
+            Total:
+          </ion-col>
+          <ion-col>
+            <div class="price-item">
+              {{total.toFixed(2)}}
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-col class="button3-color btn-radius">
+          <button class="btn padding-btn text-light text-btn" (click)="onSubmit()">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="icon-footer">
+          <img src="../../assets/img/Groupe42.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,68 @@
+{
+    "HOME": {
+        "title": "S'identifier",
+        "input1": "E-mail",
+        "alrt1inp1": "E-mail est requis",
+        "alrt2inp1": "E-mail invalide",
+        "alrt3inp1": "Doit contenir plus de 6 caractères",
+        "input2": "Mot de passe",
+        "alrt1inp2": "Mot de passe requis",
+        "alrt2inp2": "doit contenir plus de 6 caractères",
+        "forgot": "Mot de passe oublié?",
+        "info3": "Ou continuer avec :",
+        "btn1": "FACEBOOK",
+        "btn2": "GOOGLE",
+        "btn3": "S'IDENTIFIER",
+        "info2": "CRÉER UN COMPTE"
+    },
+    "REGIS": {
+        "title": "Créer un nouveau compte",
+        "body": "Entrez vos informations pour créer un nouveau compte",
+        "input1": "Votre nom",
+        "alrt1inp1": "Le nom est requis",
+        "input2": "Votre e-mail",
+        "alrt1inp2": "E-mail est requis",
+        "alrt2inp2": "E-mail invalide",
+        "alrt3inp2": "Doit contenir plus de 6 caractères",
+        "input3": "Votre mot de passe",
+        "alrt1inp3": "Mot de passe requis",
+        "alrt2inp3": "Doit contenir plus de 6 caractères",
+        "show": "Afficher",
+        "hide": "Cacher",
+        "info3": "Ou continuer avec :",
+        "btn1": "FACEBOOK",
+        "btn2": "GOOGLE",
+        "btn3": "CRÉER UN COMPTE",
+        "info1": "Vous avez déjà un compte? ",
+        "info2": "S'identifier"
+    },
+    "VALID": {
+        "title": "Vérifier email",
+        "body": "Veuillez saisir les 4 chiffres que nous vous avons envoyés par e-mail",
+        "info": "RENVOYER LE CODE",
+        "btn": "VÉRIFIER"
+    },
+    "FORGOT": {
+        "title": "Réinitialisez mot de passe",
+        "body1": "Mot de passe perdu ? Vous l'avez oublié ? Pas de soucis",
+        "body2": "Entrez votre adresse e-mail dans l'espace ci-dessous",
+        "body3": "Et nous vous enverrons les instructions par e-mail pour",
+        "body4": "Réinitialiser le mot de passe",
+        "input": "Email",
+        "btn": "SUBMIT"
+    },
+    "DASH": {
+        "title": "Tableau de bord",
+        "subTitle": "Salut ",
+        "titleCard1": "Analyse des ventes de l'exercice actuel",
+        "subTitle1Card1": "Estimations",
+        "subTitle2Card1": "Factures",
+        "subTitle3Card1": "Paiements",
+        "indCard": "TND",
+        "title1":"Statistiques globales",
+        "title1ListCard": "Solde total",
+        "title2ListCard": "Revenus",
+        "title3ListCard": "Résultats",
+        "titleCard2": "Principales catégories de dépenses"
+    }
+}

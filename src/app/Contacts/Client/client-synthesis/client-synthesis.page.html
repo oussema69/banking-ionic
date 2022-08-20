@@ -1,0 +1,59 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar (click)="goBack()">
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
+    <ion-title>{{name}}</ion-title>
+    <img src="../../assets/img/Tracé 468.png" class="menu">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="rounded-card center margin-1">
+        <img src="../../assets/img/Icons - Widget Illustration2.png">
+        <div class="card-content-1"> 
+          Received payments
+        </div>
+        <div class="card-content-2">
+          {{incomesTotal.toFixed(2)}}<sup class="card-content-3">TND</sup>
+        </div>
+      </ion-col>
+      <ion-col class="rounded-card center margin-2">
+        <img src="../../assets/img/Icons - Widget Illustration1.png">
+        <div class="card-content-1"> 
+          Unpaid balance
+        </div>
+        <div class="card-content-2">
+          {{unpaid.toFixed(2)}}<sup class="card-content-3">TND</sup>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="rounded-card center margin-1">
+        <img src="../../assets/img/Icons - Widget Illustration3.png">
+        <div class="card-content-1"> 
+          Invoices
+        </div>
+        <div class="card-content-2">
+          {{invoicesTotal.toFixed(2)}}<sup class="card-content-3">TND</sup>
+        </div>
+      </ion-col>
+      <ion-col class="rounded-card center margin-2">
+        <img src="../../assets/img/Icons - Widget Illustration.png">
+        <div class="card-content-1"> 
+          Estimates
+        </div>
+        <div class="card-content-2">
+          {{estimatesTotal.toFixed(2)}}<sup class="card-content-3">TND</sup>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="rounded-card margin-3">
+    <div class="card2-content">
+      Current Exercise Sales Analytics
+    </div>
+    <div id="container"></div>
+  </div>
+
+</ion-content>

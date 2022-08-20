@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar (click)="goBack()">
+    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent">
+    <ion-title>New Company</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <div class="rounded-card"> 
+    <form [formGroup]="formData" (ngSubmit)="onSubmit">
+      <ion-grid class="content">
+        <ion-row>
+          <ion-col class="sub-title">
+            Financial Information
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="Bank" formControlName="bank"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="BIC / SWIFT" formControlName="bs"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-input type="text" placeholder="R.I.B" formControlName="rib"></ion-input>
+          </ion-col>
+        </ion-row>
+        <div class="label">
+          Country
+        </div>
+        <ion-row>
+          <ion-col class="input-border">
+            <ion-select [value]="countryDefault" formControlName="country" class="select-option" interface="popover">
+              <ion-select-option *ngFor="let country of countries" [value]="country">{{country.title}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

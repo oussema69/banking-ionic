@@ -1,0 +1,126 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <p class="icons-lang">
+      <img src="../../assets/img/Icons-Flag-Tunisia.png" class="flag" (click)="setLang('ar')">
+      <img src="../../assets/img/Icons-Flag-United-states-of-america.png" class="flag" (click)="setLang('en')">
+      <img src="../../assets/img/Icons-Flag-France.png" class="flag" (click)="setLang('fr')">
+    </p>
+    <div class="content-title">
+      <ion-menu-toggle>
+        <img class="icon-menu" src="../../assets/img/Icon open-menu.png">
+      </ion-menu-toggle>
+      <ion-title class="title-header">
+        {{'DASH.title' | translate}}
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <div class="title-content-1">{{companyName}}</div>
+    <div class="title-content-2">{{'DASH.subTitle' | translate}}, {{name}}</div>
+    <ion-card class="card-1">
+      <ion-card-content>
+        <div class="title-card-1">
+          {{'DASH.titleCard1' | translate}}
+        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="val-card-1">
+              {{estimatesSum.toFixed(2)}}
+            </ion-col>
+            <ion-col class="val-card-1">
+              {{invoicesSum.toFixed(2)}}
+            </ion-col>
+            <ion-col class="val-card-1">
+              {{incomesSum.toFixed(2)}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="subtitle-card-1">
+              {{'DASH.subTitle1Card1' | translate}}
+            </ion-col>
+            <ion-col class="subtitle-card-1">
+              {{'DASH.subTitle2Card1' | translate}}
+            </ion-col>
+            <ion-col class="subtitle-card-1">
+              {{'DASH.subTitle3Card1' | translate}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ind-card-1">
+              {{'DASH.indCard' | translate}}
+            </ion-col>
+            <ion-col class="ind-card-1">
+              {{'DASH.indCard' | translate}}
+            </ion-col>
+            <ion-col class="ind-card-1">
+              {{'DASH.indCard' | translate}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div id="container"></div>
+      </ion-card-content>
+    </ion-card>
+    <div class="title-content-3">
+      {{'DASH.title1' | translate}}
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="rounded-card">
+          <ion-grid>
+            <ion-row class="icon-list-card">
+              <img src="../../assets/img/Icon awesome-file-invoice-dollar.png">
+            </ion-row>
+            <ion-row class="title-list-card">
+              {{'DASH.title1ListCard' | translate}}
+            </ion-row>
+            <ion-row class="val-list-card">
+              {{totalBalance.toFixed(2)}}
+              <sub class="ind-list-card">{{'DASH.indCard' | translate}}</sub>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col class="rounded-card">
+          <ion-grid>
+            <ion-row class="icon-list-card">
+              <img src="../../assets/img/Groupe 1.png">
+            </ion-row>
+            <ion-row class="title-list-card">
+              {{'DASH.title2ListCard' | translate}}
+            </ion-row>
+            <ion-row class="val-list-card">
+              {{totalIncomes.toFixed(2)}}
+              <sub class="ind-list-card">{{'DASH.indCard' | translate}}</sub>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col class="rounded-card">
+          <ion-grid>
+            <ion-row class="icon-list-card">
+              <img src="../../assets/img/Groupe 171.png">
+            </ion-row>
+            <ion-row class="title-list-card">
+              {{'DASH.title3ListCard' | translate}}
+            </ion-row>
+            <ion-row class="val-list-card">
+              {{totalOutcomes.toFixed(2)}}
+              <sub class="ind-list-card">{{'DASH.indCard' | translate}}</sub>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-card class="card-2">
+      <ion-card-content>
+        <div class="title-card-2">
+          {{'DASH.titleCard2' | translate}}
+        </div>
+        <figure class="highcharts-figure">
+          <div id="container1"></div>
+        </figure>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
