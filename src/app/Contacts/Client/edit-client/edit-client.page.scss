@@ -9,33 +9,62 @@
     transform: translate(-500%, -110%);
     float: right;
 }
-
+ion-content{
+    transform: translateY(2%);
+}
 ion-title{
     text-align: center;
-    transform: translate(-45px, 5%);
     color: #0B1D39;
-    font-family: 'Demi';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 130%;
-    font-weight: 600;
+    font-weight: bold;
+    position: absolute;
+    left:12%
+}
+.ios ion-title{
+   
+    color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 130%;
+    font-weight: bold;
+    position: absolute;
+    left:-8%;
+    top:24%;
+}
+.input-border-crr{
+    border: solid #44C4A1 !important;
+    border-radius: 5px;
+  
+}
+
+.input-border-err{
+    border: solid #E56353 !important;
+    border-radius: 5px;
+   
+
+}
+.error{
+    color: #e56353;
+    font-family: 'Medium';
+    font-size: small;
+    transform: translate(3%, -30%);
+    height: 30px;
 }
 
 ion-header{
     padding-top: 5%;
+   
 }
 
 .rounded-card{
     --background: #FFFFFF;
-    box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    height: 520%;
-    margin-bottom: 5%;
+ 
 }
 
 .sub-title{
     transform: translateX(5%);
-    font-family: 'Medium';
-    font-weight: 599;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
     margin-top: 4%;
 }
 

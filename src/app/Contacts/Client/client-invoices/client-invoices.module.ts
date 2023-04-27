@@ -7,14 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { ClientInvoicesPageRoutingModule } from './client-invoices-routing.module';
 
 import { ClientInvoicesPage } from './client-invoices.page';
+import { InvoicesPipe } from 'src/app/pipes/invoices.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClientInvoicesPageRoutingModule
+    ClientInvoicesPageRoutingModule,
+    TranslateModule 
+
+    
   ],
-  declarations: [ClientInvoicesPage]
+  declarations: [ClientInvoicesPage, InvoicesPipe]
 })
 export class ClientInvoicesPageModule {}

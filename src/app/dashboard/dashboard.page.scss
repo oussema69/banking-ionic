@@ -25,9 +25,49 @@ ion-row{
 .title-header{
     transform: translate(10%, -50%);
     font-size: 130%;
-    font-family: 'Demi';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 600;
     color: #0B1D39;
+}
+
+ @media screen and (max-width: 760px) {
+    .ios .title-header{
+        transform: translate(10%, -50%);
+        font-size: 130%;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 600;
+        color: #0B1D39;
+        position: absolute;
+     top: 41px;
+        left: -27%;
+        
+    
+    
+    }
+     
+}
+@media screen and (min-width: 760px) {
+    .ios .title-header{
+        transform: translate(10%, -50%);
+        font-size: 130%;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 600;
+        color: #0B1D39;
+        margin-top: 8%;
+        position: absolute;
+     
+           left: -30%;
+        
+    
+    
+    }
+     
+}
+@media screen and (min-width: 760px) {
+    .ios .icon-menu{
+    width: 5%;
+}
+     
 }
 
 .icon-menu{
@@ -82,14 +122,16 @@ ion-row{
     font-size: 118%;
     font-weight: 600;
 }
-
+.aa{
+    width: 200px;
+    background-color: #000000;
+}
 .subtitle-card-1{
-    color: #000000;
-    opacity: 0.5;
-    font-family: 'Book';
-    font-size: 80%;
-    transform: translateY(-25%);
-    font-weight: 600;
+    font-size :56%;
+    transform: translateY(-35%);
+    color: #090D17;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
 }
 
 .ind-card-1{
@@ -130,9 +172,63 @@ ion-row{
     color: #000000;
     font-weight: 600;
 }
+#element1 {display:inline-block;margin-right:2px;} 
+#element2 {
+  display:inline-block;
+  
 
-.highcharts-figure {
-    min-width: 310px;
-    max-width: 800px;
-    margin: 1em auto;
 }
+.square {
+    height: 10px;
+    width: 10px;
+    background-color:#1A8CFE;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .square1 {
+    height: 10px;
+    width: 10px;
+    background-color: #0ACDFC;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .square2   {
+    height: 10px;
+    width: 10px;
+    background-color:#00E6C3;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .square3   {
+    height: 10px;
+    width: 10px;
+    background-color: #39A9C4;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .square4   {
+    height: 10px;
+    width: 10px;
+    background-color: #94F73F;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .square5   {
+    height: 10px;
+    width: 10px;
+    background-color: #AFB507;
+    border-radius: 50%;
+    display: inline-block;
+  }
+ .square6   {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(189, 52, 52);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .highcharts-color-0 {
+   color: white;
+  }
+

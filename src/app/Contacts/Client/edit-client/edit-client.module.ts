@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditClientPageRoutingModule } from './edit-client-routing.module';
 
 import { EditClientPage } from './edit-client.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EditClientPage } from './edit-client.page';
     FormsModule,
     IonicModule,
     EditClientPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule,
   ],
   declarations: [EditClientPage]
 })

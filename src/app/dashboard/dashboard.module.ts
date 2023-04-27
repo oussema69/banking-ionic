@@ -17,6 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
     DashboardPageRoutingModule,
     TranslateModule
   ],
+
+
   declarations: [DashboardPage]
 })
 export class DashboardPageModule {}

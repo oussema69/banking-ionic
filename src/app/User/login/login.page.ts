@@ -42,6 +42,7 @@ export class LoginPage implements OnInit, ViewWillEnter {
       if(val)
         this.router.navigate(['/menu/dashboard']);
     });
+
   }
 
   ngOnInit() {
@@ -49,6 +50,7 @@ export class LoginPage implements OnInit, ViewWillEnter {
       email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       password: new FormControl('', [Validators.required])
     });
+    
   }
 
   validateEmail(){
@@ -85,7 +87,7 @@ export class LoginPage implements OnInit, ViewWillEnter {
       if(lang == 'en'){
         const alert = await alertController.create({
           header: 'Oops',
-          message: 'must complete the form' ,
+          message: '<ion-icon name="warning"></ion-icon> must complete the form' ,
           buttons: ['Agree'],
         });
         await alert.present();
@@ -93,7 +95,7 @@ export class LoginPage implements OnInit, ViewWillEnter {
       if(lang == 'fr'){
         const alert = await alertController.create({
           header: 'Oops',
-          message: 'doit remplire le formulaire' ,
+          message: '<ion-icon name="warning"></ion-icon> doit remplire le formulaire' ,
           buttons: ['Accepter'],
         });
         await alert.present();
@@ -101,8 +103,9 @@ export class LoginPage implements OnInit, ViewWillEnter {
       if(lang == 'ar'){
         const alert = await alertController.create({
           header: 'Oops',
-          message: 'يجب إكمال المعلومات' ,
+          message: '<ion-icon name="warning"></ion-icon>  يجب إكمال المعلومات' ,
           buttons: ['اتفق'],
+          
         });
         await alert.present();
       }
@@ -113,21 +116,40 @@ export class LoginPage implements OnInit, ViewWillEnter {
     const dataSend = {
       email: this.formData.value.email,
       password: this.formData.value.password,
-      uuid: this.device.uuid,
+      uuid: '68fd13ea-bf76-42ac-a9b9-f78652906024',
       platform: this.device.platform,
       os_version: this.device.version,
       mobile_token: this.device.serial,
       model: this.device.model
     }
 
-    const loading = await this.loadingController.create({
+    const loadingEN = await this.loadingController.create({
       message: 'Please wait...'
     });
-    await loading.present();
+    const loadingAR = await this.loadingController.create({
+      message: 'أرجو الإنتظار...'
+    });
+    const loadingFR = await this.loadingController.create({
+      message: 'S il vous plaît, attendez...'
+    });
+    if(lang == 'ar'){
+      await loadingAR.present();
+    }
+    if(lang == 'en'){
+      await loadingEN.present();
+    }
+    if(lang == 'fr'){
+      await loadingFR.present();
+    }
+    
 
     this.http.login('/user/login', dataSend, lang).subscribe(async (res: any) => {
-      console.log(res);
-      await loading.dismiss();
+      console.log(res.data.user,'user');
+
+      await loadingFR.dismiss();
+      await loadingAR.dismiss();
+      await loadingEN.dismiss();
+
       if(res.status.code != 200){
         if(res.status.code == 402){
           this.router.navigate(['/emailvalid', this.formData.value.email]);
@@ -138,9 +160,12 @@ export class LoginPage implements OnInit, ViewWillEnter {
           this.storage.set('access_token',res.data.device.access_token);
           this.router.navigate(['/new-company-page-one']);
         }else{
+         
+          
+
           const alert = await alertController.create({
             header: 'Oops',
-            message: res.status.message || res.message,
+            message:'<ion-icon name="warning" color:"danger"></ion-icon> '+ res.status.message || res.message,
             buttons: ['Agree'],
           });
           await alert.present();
@@ -151,6 +176,7 @@ export class LoginPage implements OnInit, ViewWillEnter {
         this.storage.set('company_id',res.data.companyId);
         this.storage.set('company_list', res.data.ownedCompanies);
         this.storage.set('user', res.data.user);
+        await this.setLang(res.data.user.language)
         this.router.navigate(['/menu/dashboard']);
       }
     },

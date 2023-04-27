@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { NewCompanyPageTwoPageRoutingModule } from './new-company-page-two-routing.module';
 
 import { NewCompanyPageTwoPage } from './new-company-page-two.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { NewCompanyPageTwoPage } from './new-company-page-two.page';
     FormsModule,
     IonicModule,
     NewCompanyPageTwoPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   declarations: [NewCompanyPageTwoPage]
 })

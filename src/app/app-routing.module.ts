@@ -11,6 +11,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./User/login/login.module').then( m => m.LoginPageModule)
   },
+  
   {
     path: 'registration',
     loadChildren: () => import('./User/registration/registration.module').then( m => m.RegistrationPageModule)
@@ -112,6 +113,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+  {
+    path: 'nointernet',
+    loadChildren: () => import('./nointernet/nointernet.module').then( m => m.NointernetPageModule)
+  },
+
 
 
 

@@ -58,42 +58,125 @@ export class ClientPopoverPage implements OnInit {
   }
 
   async deleteClient(){
-    await this.popoverCtrl.dismiss();
-    const alert = await alertController.create({
-      header: 'Oops',
-      message: 'do you delete?',
-      buttons: [
-        {
-          text: 'Yes',
-          role: 'yes'
-        }, {
-          text: 'No',
-          role: 'no'
-        }],
+    let lang = '';
+    await this.storage.get('SELECTED_LANGUAGE').then((val: string) => {
+      lang = val;
     });
-    await alert.present();
-    const { role } = await alert.onDidDismiss();
-    if(role == 'yes'){
-      const loading = await this.loadingController.create({
-        message: 'Please wait...'
+  
+    await this.popoverCtrl.dismiss();
+    if(lang=='en'){
+      const alert = await alertController.create({
+        header: 'Oops',
+        message: 'do you delete?',
+        buttons: [
+          {
+            text: 'Yes',
+            role: 'yes'
+          }, {
+            text: 'No',
+            role: 'no'
+          }],
       });
-      await loading.present();
-      this.http.client('/company/'+this.company_id+'/client/'+this.id+'/delete', 'en', this.acces_token).subscribe(async (res: any) => {
-        console.log(res);
-        await loading.dismiss();
-        this.homeRef.getClients();
-        if(res.status.code == 501){
-          const alert = await alertController.create({
-            header: 'Oops',
-            message: res.message ,
-            buttons: ['Agree'],
-          });
-          await alert.present();
-        }
-      }, err => {
-        console.log(err);
-      });
+      await alert.present();
+      const { role } = await alert.onDidDismiss();
+      if(role == 'yes'){
+        const loading = await this.loadingController.create({
+          message: 'Please wait...'
+        });
+        await loading.present();
+        this.http.client('/company/'+this.company_id+'/client/'+this.id+'/delete', 'en', this.acces_token).subscribe(async (res: any) => {
+          console.log(res);
+          await loading.dismiss();
+          this.homeRef.getClients();
+          if(res.status.code == 501){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.message ,
+              buttons: ['Agree'],
+            });
+            await alert.present();
+          }
+        }, err => {
+          console.log(err);
+        });
+      }
     }
+    if(lang=='fr'){
+      const alert = await alertController.create({
+        header: '',
+        message: 'voulez-vous supprimer ?',
+        buttons: [
+          {
+            text: 'OUI',
+            role: 'yes'
+          }, {
+            text: 'Non',
+            role: 'no'
+          }],
+      });
+      await alert.present();
+      const { role } = await alert.onDidDismiss();
+      if(role == 'yes'){
+        const loading = await this.loadingController.create({
+          message: 'Sil vous plaît, attendez...'
+        });
+        await loading.present();
+        this.http.client('/company/'+this.company_id+'/client/'+this.id+'/delete', 'en', this.acces_token).subscribe(async (res: any) => {
+          console.log(res);
+          await loading.dismiss();
+          this.homeRef.getClients();
+          if(res.status.code == 501){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.message ,
+              buttons: ['Agree'],
+            });
+            await alert.present();
+          }
+        }, err => {
+          console.log(err);
+        });
+      }
+    }
+    if(lang=='ar'){
+      const alert = await alertController.create({
+        header: '',
+        message: 'هل تريد أن تحذف؟',
+        buttons: [
+          {
+            text: 'نعم',
+            role: 'yes'
+          }, {
+            text: 'لا',
+            role: 'no'
+          }],
+      });
+      await alert.present();
+      const { role } = await alert.onDidDismiss();
+      if(role == 'yes'){
+        const loading = await this.loadingController.create({
+          message: 'أرجو الإنتظار...'
+        });
+        await loading.present();
+        this.http.client('/company/'+this.company_id+'/client/'+this.id+'/delete', 'en', this.acces_token).subscribe(async (res: any) => {
+          console.log(res);
+          await loading.dismiss();
+          this.homeRef.getClients();
+          if(res.status.code == 501){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.message ,
+              buttons: ['Agree'],
+            });
+            await alert.present();
+          }
+        }, err => {
+          console.log(err);
+        });
+      }
+    }
+
+
   }
 
 }

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { NewCompanyPageThreePageRoutingModule } from './new-company-page-three-routing.module';
 
 import { NewCompanyPageThreePage } from './new-company-page-three.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { NewCompanyPageThreePage } from './new-company-page-three.page';
     FormsModule,
     IonicModule,
     NewCompanyPageThreePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   declarations: [NewCompanyPageThreePage]
 })

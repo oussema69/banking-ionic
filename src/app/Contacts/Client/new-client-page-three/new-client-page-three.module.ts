@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { NewClientPageThreePageRoutingModule } from './new-client-page-three-routing.module';
 
 import { NewClientPageThreePage } from './new-client-page-three.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NewClientPageThreePageRoutingModule
+    NewClientPageThreePageRoutingModule,
+    TranslateModule
   ],
   declarations: [NewClientPageThreePage]
 })

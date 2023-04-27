@@ -24,9 +24,12 @@
         "alrt1inp2": "Email is required",
         "alrt2inp2": "Email invalid",
         "alrt3inp2": "Must be more than 6 characters",
+        "telinput":"Your phone number",
+        "alerttel":"Phone required",
+        "alerttel1":"Must be more then 8 number",
         "input3": "Your password",
         "alrt1inp3": "Password is required",
-        "alrt2inp3": "Must be more than 6 characters",
+        "alrt2inp3": "Must be more than 8 characters",
         "show": "Show",
         "hide": "Hide",
         "info3": "Or continue with:",
@@ -64,5 +67,146 @@
         "title2ListCard": "Incomes",
         "title3ListCard": "Outcomes",
         "titleCard2": "Main Expenses Categories"
-    }
+    },
+    "SUBSCRIPTION":{
+        "btn-continu":"Continue",
+        "title":"Subscription Plan",
+        "description":"Please choose the plan that fulfills your business ",
+        "after-br":"need",
+        "year":"Annually",
+        "month":"Monthly",
+        "price":"free",
+        "priceYear":"Dinard / Year",
+        "priceMonth":"Dinard / Month",
+        "afterprice":"The best plan to try everything at Birou.",
+        "afterprice2":"The most popular subscription at Birou.",
+        "afterprice3":"The plan that gives you everything you may need.",
+        "startup":"Premuim",
+        "prof":"Professional"
+       
+
+
+
+
+
+      },
+      "COMPANYONE":{
+        "header":"New Company",
+        "logo":"Add Logo Photo",
+        "info":"General Information",
+        "name":"Company Name",
+        "pdf":"pdf language",
+        "tel":"Phone Number",
+        "website":"Web Site",
+        "ctn":"Continue",
+        "firstName":"First name required",
+        "nameError":"Company name required",
+        "telError1":"phone number required",
+        "telError2":"must contain only numbers",
+        "telError3":"must contain at least 8 digits",
+        "webError":"must respect url features",
+        "en":"English",
+        "ar":"Arabic",
+        "fr":"Frensh"
+
+       
+      },
+      "COMPANYTWO":{
+        "act":"Activity",
+        "tax":"TAX Identification Number",
+        "ex":" Exercise",
+        "curr":" Main Currency"
+
+      
+      },
+      "COMPANYTHREE":{
+        "info":"Financial Information",
+        "bank":"Bank",
+        "bic":"BIC/SWIFT",
+        "rib":"R.I.B",
+        "country":"Country"
+       },
+       "MENU":{
+        "company":"Company  Management",
+        "dash":"Dashboard",
+        "ctn":"Contacts",
+        "sales":"Sales",
+        "stock":"Stock"
+
+
+        
+      },
+      "NOINTERNET":{
+        "text1":"Sorry    ",
+        "text2":"Please check your internet connection",
+        "text3":"and try again later",
+        "title":"No Internet",
+        "btn":"Try Again"
+
+       },
+       "ListeClient":{
+        "title":"Clients",
+        "search":"Search",
+        "display":"Display Name",
+        "status":"Status"
+
+       
+       },
+       "clientone":{
+        "title":"New Client",
+        "info":"General Information",
+        "title1":"Title",
+        "Fname":"First Name",
+        "Lname":"Last Name",
+        "company":"Company",
+        "email":"Email",
+        "phone":"phone",
+        "website":"Website"
+       },
+       "clienttwo":{
+        "info":" Professional Information",
+        "type":"Type",
+        "Professional":"Professional",
+        "Particuler":"Particular",
+        "tax":"Tax identification number",
+        "act":"Activity",
+        "cur":"Main Currency",
+        "deadline":"Payment Conditions"
+       },
+       "clientthree":{
+        "info":" Billing Address",
+        "adr":"Adress",
+        "state":"State",
+        "zip":"Zip Code",
+        "country":"  Country",
+        "del":" Delivery Address",
+        "note":"Notes",
+        "placeholder":"You may put here any comments you think are relevant. (Optional)",
+        "ctn":"Confirm"
+
+       },
+       "popover":{
+        "synth":"Synthesis",
+        "time":"Timeline",
+        "invoice":"Invoices",
+        "estimate":"Estimates",
+        "del":"Delivery notes",
+        "sr":"Exit vouchers",
+        "pay":"Paiements",
+        "edit":"Edit client",
+        "supp":"Delete client"
+       },
+       "synthesie":{
+        "payment":"Received payments",
+        "balance":"Unpaid balance",
+        "invoces":"invoces",
+        "estimat":"Estimations",
+        "exercice":"Current Exercise Sales Analytics"
+       }
+       ,
+       "empty":{
+        "line1":"this page is empty for now .",
+        "line2":"Create your first entry right now by",
+        "line3":"tapping the + button of your screen"
+       }
 }

@@ -76,7 +76,7 @@ export class EmailValidationPage implements OnInit {
         const alert = await alertController.create({
           header: 'Oops',
           message: 'Le code est requis' ,
-          buttons: ['Agree'],
+          buttons: ['Accepter'],
         });
         await alert.present();
       }
@@ -84,7 +84,7 @@ export class EmailValidationPage implements OnInit {
         const alert = await alertController.create({
           header: 'Oops',
           message: 'الرمز مطلوب' ,
-          buttons: ['Agree'],
+          buttons: ['موافق'],
         });
         await alert.present();
       }
@@ -100,12 +100,31 @@ export class EmailValidationPage implements OnInit {
     this.http.registration('/user/email/validate', dataSend, lang).subscribe(async (res: any) => {
       console.log(res);
       if(res.status.code != 200){
-        const alert = await alertController.create({
-          header: 'Oops',
-          message: res.message.email || res.message || res.message.code,
-          buttons: ['Agree'],
-        });
-        await alert.present();
+        if(lang == 'en'){
+          const alert = await alertController.create({
+            header: 'Oops',
+            message: res.message.email || res.message || res.message.code ,
+            buttons: ['Agree'],
+          });
+          await alert.present();
+        }
+        if(lang == 'fr'){
+          const alert = await alertController.create({
+            header: 'Oops',
+            message: res.message.email || res.message || res.message.code,
+            buttons: ['Accepter'],
+          });
+          await alert.present();
+        }
+        if(lang == 'ar'){
+          const alert = await alertController.create({
+            header: 'Oops',
+            message: res.message.email || res.message || res.message.code,
+            buttons: ['موافق'],
+          });
+          await alert.present();
+        }
+  
       }else{
         this.router.navigate(['/subscription']);
       }

@@ -13,13 +13,17 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { ClientPopoverPageModule } from './Contacts/Client/client-popover/client-popover.module';
+import { ContactclientsPipe } from './pipes/contactclients.pipe';
+import { DashboardPage } from './dashboard/dashboard.page';
+import { InvoicesPipe } from './pipes/invoices.pipe';
+import { PaymentPipe } from './pipes/payment.pipe';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,],
   entryComponents: [],
   imports: [
     BrowserModule,

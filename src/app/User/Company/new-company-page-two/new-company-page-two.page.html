@@ -1,8 +1,8 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar (click)="goBack()">
-    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent">
-    <ion-title>New Company</ion-title>
-  </ion-toolbar>
+  
+    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent" (click)="goBack()">
+    <ion-title> {{ 'COMPANYONE.header' | translate}}</ion-title>
+ 
 </ion-header>
 
 <ion-content>
@@ -11,14 +11,15 @@
       <ion-grid class="content">
         <ion-row>
           <ion-col class="sub-title">
-            Accounting Information
+            {{ 'COMPANYONE.info' | translate}}
           </ion-col>
         </ion-row>
-        <div class="label">
-          Activity
-        </div>
+      
         <ion-row>
           <ion-col class="input-border">
+            <div class="label">
+              {{ 'COMPANYTWO.act' | translate}}
+            </div>
             <ion-select [value]="activityDefault" formControlName="activity" class="select-option" interface="popover">
               <ion-select-option *ngFor="let activity of activities" [value]="activity">{{ activity.title }}</ion-select-option>
             </ion-select>
@@ -26,24 +27,26 @@
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="TAX Identification Number" formControlName="tax"></ion-input>
+            <ion-input type="text" placeholder="  {{ 'COMPANYTWO.tax' | translate}}" formControlName="tax"></ion-input>
           </ion-col>
         </ion-row>
-        <div class="label">
-          Exercise
-        </div>
+      
         <ion-row>
           <ion-col class="input-border">
+            <div class="label">
+              {{ 'COMPANYTWO.ex' | translate}}
+            </div>
             <ion-select [value]="accountDefault" formControlName="exercice" class="select-option" interface="popover">
               <ion-select-option *ngFor="let account of accounting" [value]="account">{{ account.title }}</ion-select-option>
             </ion-select>
           </ion-col>
         </ion-row>
-        <div class="label">
-          Main Currency
-        </div>
+      
         <ion-row>
           <ion-col class="input-border">
+            <div class="label1">
+              {{ 'COMPANYTWO.curr' | translate}}
+            </div>
             <ion-select [value]="currencyDefault" formControlName="currency" class="select-option" interface="popover">
               <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{currency.title}}</ion-select-option>
             </ion-select>
@@ -59,7 +62,7 @@
     <ion-grid>
       <ion-row>
         <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+          <button class="btn padding-btn text-light text-btn">{{ 'COMPANYONE.ctn' | translate}}</button>
         </ion-col>
       </ion-row>
     </ion-grid>

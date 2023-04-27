@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { ListContactPageRoutingModule } from './list-contact-routing.module';
 
 import { ListClientPage } from './list-contact.page';
+import { ContactclientsPipe } from 'src/app/pipes/contactclients.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListContactPageRoutingModule
+    ListContactPageRoutingModule,
+    TranslateModule,
+    
   ],
-  declarations: [ListClientPage]
+  declarations: [ListClientPage,ContactclientsPipe]
 })
 export class ListContactPageModule {}

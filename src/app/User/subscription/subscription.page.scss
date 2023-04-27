@@ -1,7 +1,5 @@
 .button3-color{
-    background-color: #306FEA ;
-    margin-right: 8%;
-    margin-left: 8%;
+
     text-align: center;
 }
 
@@ -13,7 +11,9 @@
     font-size: 12px;
     font-family: 'Medium';
 }
-
+.login-btn{
+    width: 60%;
+}
 .rounded-card {
     --background: #FFFFFF;
     box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
@@ -31,15 +31,64 @@
     transform: translate(0px, 20%);
 }
 
-ion-title{
-    text-align: center;
+ ion-title{
+    color: #0B1D39;
+    font-size: 25px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    left: 9%;
+    margin-top: -1%; 
+    left: 10%;
 }
+.ios ion-title{
+    color: #0B1D39;
+    font-size: 23px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute; 
+    left: -8%;
+    margin-top: 0%;
+}
+
+  ion-header{
+    height:10% ;
+    padding-top: 3%;
+    overflow: hidden;
+
+}
+
+.ios ion-header{
+    height:10% ;
+ 
+}
+
+
+
+
 
 .precedent{
     float: left;
     position: relative;
     left: 5%;
-    top: 5px;
+    bottom: 0%;
+}
+.ios .precedent{
+    float: left;
+    position: relative;
+    left: 5%;
+    margin-top: 15px;
+}
+.ios ion-radio{
+    border: 2px solid ;
+    border-color: #306FEA;
+    border-radius: 50%;
+    display: flex;
+    width: 17px;
+  height: 17px;
+}
+
+ .md ion-radio{
+    --color: #0064D9;
+
 }
 
 #container {
@@ -124,14 +173,4 @@ ion-title{
     border-radius: 5px;
 }
 
-ion-header{
-    padding-top: 3%;
-}
 
-.title{
-    color: #0B1D39;
-    font-size: 24px;
-    font-family: 'Demi';
-    position: relative;
-    right: 6%;
-}

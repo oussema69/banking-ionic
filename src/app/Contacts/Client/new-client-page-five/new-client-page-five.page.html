@@ -1,8 +1,6 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
+<ion-header class="ion-no-border" (click)="goBack()">
     <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
-    <ion-title>New Client</ion-title>
-  </ion-toolbar>
+    <ion-title>{{'ListeClient.title' | translate}}</ion-title>
 </ion-header>
 
 <ion-content>
@@ -11,12 +9,12 @@
       <ion-grid>
         <ion-row>
           <ion-col class="sub-title">
-            Notes
+            {{'clientthree.note' | translate}}
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-textarea placeholder="You may put here any comments you think are relevant. (Optional)"></ion-textarea>
+            <ion-textarea class="placeholder-color" name="note" [(ngModel)]="note" placeholder="{{'clientthree.placeholder' | translate}}" rows="10" ></ion-textarea>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -25,11 +23,10 @@
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-toolbar>
     <ion-grid>
       <ion-row>
         <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+          <button class="btn padding-btn text-light text-btn">{{'clientthree.ctn' | translate}}</button>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -38,5 +35,4 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-toolbar>
 </ion-footer>

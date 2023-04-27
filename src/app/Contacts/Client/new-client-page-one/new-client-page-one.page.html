@@ -1,23 +1,23 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
-    <ion-title>New Client</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border" (click)="goBack()">
+  
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu" >
+    <ion-title>{{'clientone.title' | translate}}</ion-title>
+
 </ion-header>
 
-<ion-content>
+<ion-content >
   <div class="rounded-card"> 
     <form [formGroup]="formData" (ngSubmit)="onSubmit()">
       <ion-grid>
         <ion-row>
           <ion-col class="sub-title">
-            General Information
+            {{'clientone.info' | translate}}
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
             <div class="label-1">
-              Title
+              {{'clientone.title1' | translate}}
             </div>
             <ion-select value="1" formControlName="title" interface="popover">
               <ion-select-option value="1">Mr.</ion-select-option>
@@ -27,24 +27,31 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="First Name" formControlName="firstName" (ionBlur)="setDisplayName()"></ion-input>
+          <ion-col class="input-border" #NameInput>
+            
+            <ion-input type="text" placeholder=" {{'clientone.Fname' | translate}} *" formControlName="firstName" (ionBlur)="setDisplayName()" (ionChange)="validateName()"></ion-input>
+          </ion-col>
+  
+        </ion-row>
+        <ion-item *ngIf="firstName.errors?.required && firstName.touched" class="error">{{'COMPANYONE.firstName' | translate}}</ion-item>
+
+        <ion-row >
+          <ion-col class="input-border" >
+            <div class="label-first">
+              {{'clientone.Lname' | translate}}
+            </div>
+            <ion-input type="text" placeholder="{{'clientone.Lname' | translate}}" interface="popover" formControlName="lastName" (ionBlur)="setDisplayName()"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="Last Name" formControlName="lastName" (ionBlur)="setDisplayName()"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="Company" formControlName="companyName" (ionBlur)="setDisplayName()"></ion-input>
+            <ion-input type="text" placeholder=" {{'clientone.company' | translate}}" formControlName="companyName" (ionBlur)="setDisplayName()"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
             <div class="label-3">
-              Display Name
+              {{'ListeClient.display' | translate}}
             </div>
             <ion-select [value]="displayNameDefault1 || displayNameDefault2 || displayNameDefault3" interface="popover" formControlName="displayName">
               <ion-select-option *ngIf="displayNameDefault1.length != 0" [value]="displayNameDefault1">{{displayNameDefault1.substring(1)}}</ion-select-option>
@@ -53,159 +60,45 @@
             </ion-select>
           </ion-col>
         </ion-row>
+        
         <ion-row>
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+          <ion-col class="input-border" #EmailInput>
+            <ion-input type="text" placeholder="{{'clientone.email' | translate}}" formControlName="email" (ionChange)="validateEmail()"></ion-input>
           </ion-col>
         </ion-row>
+        <ion-item *ngIf="email.errors?.required && email.touched" class="error">{{ 'REGIS.alrt1inp2' | translate}}</ion-item>
+        <ion-item *ngIf="email.errors?.pattern && email.touched && !email.errors?.['minlength']" class="error">{{ 'REGIS.alrt2inp2' | translate}}</ion-item>
+        <ion-item *ngIf="email.errors?.['minlength'] && email.touched" class="error">{{ 'REGIS.alrt3inp2' | translate}}</ion-item>
+        
         <ion-row>
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="Phone" formControlName="phone"></ion-input>
+          <ion-col class="input-border" #PhoneInput>
+            <ion-input type="text" placeholder="{{'clientone.phone' | translate}}" formControlName="phone" (ionChange)="validatePhone()"></ion-input>
           </ion-col>
         </ion-row>
+        <ion-item *ngIf="phone.errors?.required && phone.touched" class="error"> {{ 'COMPANYONE.telError1' | translate}}</ion-item>
+        <ion-item *ngIf="phone.errors?.pattern && phone.touched" class="error"> {{ 'COMPANYONE.telError2' | translate}}</ion-item>
+        <ion-item *ngIf="phone.errors?.['minlength'] && phone.touched" class="error"> {{ 'COMPANYONE.telError3' | translate}}</ion-item>
+
         <ion-row>
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="Website" formControlName="webSite"></ion-input>
+          <ion-col class="input-border" #WebInput>
+            <ion-input type="text" placeholder="{{'clientone.website' | translate}}" formControlName="webSite" (ionChange)="validateWeb()"></ion-input>
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-            <button class="btn padding-btn text-light text-btn">CONTINUE</button>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="icon-footer">
-            <img src="../../assets/img/Groupe1.png">
-          </ion-col>
-        </ion-row>
+        <ion-item *ngIf="webSite.errors?.pattern && webSite.touched" class="error">  {{ 'COMPANYONE.webError' | translate}}</ion-item>
+
       </ion-grid>
     </form>
   </div>
 </ion-content>
 
-<!-- <ion-content>
-  General Information
-  <form [formGroup]="formData" (ngSubmit)="onSubmit()">
-    <ion-card class="card-radius">
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            Title
-          </ion-row>
-          <ion-row>
-            <ion-select value="1" interface="popover" formControlName="title">
-              <ion-select-option value="1">Mr.</ion-select-option>
-              <ion-select-option value="2">Ms.</ion-select-option>
-              <ion-select-option value="3">M.</ion-select-option>
-            </ion-select>
-          </ion-row>
-          <ion-row>
-            First Name
-          </ion-row>
-          <ion-row>
-            <ion-input type="text" formControlName="firstName" (ionBlur)="setDisplayName()"></ion-input>
-          </ion-row>
-          <ion-row>
-            last Name
-          </ion-row>
-          <ion-row>
-            <ion-input type="text" formControlName="lastName" (ionBlur)="setDisplayName()"></ion-input>
-          </ion-row>
-          <ion-row>
-            company Name
-          </ion-row>
-          <ion-row>
-            <ion-input type="text" formControlName="companyName" (ionBlur)="setDisplayName()"></ion-input>
-          </ion-row>
-          <ion-row>
-            Display Name
-          </ion-row>
-          <ion-row>
-            <ion-select [value]="displayNameDefault1 || displayNameDefault2 || displayNameDefault3" interface="popover" formControlName="displayName">
-              <ion-select-option *ngIf="displayNameDefault1.length != 0" [value]="displayNameDefault1">{{displayNameDefault1.substring(1)}}</ion-select-option>
-              <ion-select-option *ngIf="displayNameDefault2.length != 0" [value]="displayNameDefault2">{{displayNameDefault2.substring(1)}}</ion-select-option>
-              <ion-select-option *ngIf="displayNameDefault3.length != 0" [value]="displayNameDefault3">{{displayNameDefault3.substring(1)}}</ion-select-option>
-            </ion-select>
-          </ion-row>
-          <ion-row>
-            Email
-          </ion-row>
-          <ion-row>
-            <ion-item>
-              <ion-input type="text" formControlName="email"></ion-input>
-            </ion-item>
-          </ion-row>
-          <ion-row>
-            Phone
-          </ion-row>
-          <ion-row>
-            <ion-input type="text" formControlName="phone"></ion-input>
-          </ion-row>
-          <ion-row>
-            Web Site
-          </ion-row>
-          <ion-row>
-            <ion-item>
-              <ion-input type="text" formControlName="webSite"></ion-input>
-            </ion-item>
-          </ion-row>
-      </ion-grid>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="card-radius">
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            Professional information
-          </ion-row>
-          <ion-row>
-            <ion-input type="text" formControlName="proInfo"></ion-input>
-          </ion-row>
-          <ion-row>
-            Activity
-          </ion-row>
-          <ion-row>
-            <ion-select [value]="activityDefault" interface="popover" formControlName="activity">
-              <ion-select-option *ngFor="let activity of activities" [value]="activity">{{activity.title}}</ion-select-option>
-            </ion-select>
-          </ion-row>
-          <ion-row>
-            Currency
-          </ion-row>
-          <ion-row>
-            <ion-select [value]="currencyDefault" interface="popover" formControlName="currency">
-              <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{currency.title}}</ion-select-option>
-            </ion-select>
-          </ion-row>
-          <ion-row>
-            Payment Conditions
-          </ion-row>
-          <ion-row>
-            <ion-select [value]="deadlineDefault" interface="popover" formControlName="paymentCond">
-              <ion-select-option *ngFor="let deadline of deadlines" [value]="deadline">{{deadline.title}}</ion-select-option>
-            </ion-select>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="card-radius">
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            Notes
-          </ion-row>
-          <ion-row>
-            <ion-textarea formControlName="notes"></ion-textarea>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-          <button class="btn padding-btn" type="submit"><span class="text-btn text-light">Next</span></button><img class="image-btn" src="../../assets/img/Group2.png">
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
-</ion-content> -->
+
+<ion-row>
+  <ion-col class="button3-color btn-radius" (click)="onSubmit()">
+    <button class="btn padding-btn text-light text-btn">{{'COMPANYONE.ctn' | translate}}</button>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col class="icon-footer">
+    <img src="../../assets/img/Groupe1.png">
+  </ion-col>
+</ion-row>

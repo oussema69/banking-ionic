@@ -9,16 +9,25 @@
     transform: translate(-500%, -110%);
     float: right;
 }
-
+ion-content{
+    transform: translateY(3%);
+}
 ion-title{
     text-align: center;
-    transform: translate(-45px, 5%);
+    transform: translate(-27%, -6%);
     color: #0B1D39;
-    font-family: 'Demi';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 130%;
-    font-weight: 600;
+    font-weight: bold;
 }
-
+.ios ion-title{
+    text-align: center;
+    transform: translate(-22%, 22%);
+    color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 130%;
+    font-weight: bold;
+}
 ion-header{
     padding-top: 5%;
 }

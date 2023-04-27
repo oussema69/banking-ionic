@@ -25,12 +25,15 @@ export class NewCompanyPageThreePage implements OnInit {
       rib: new FormControl(''),
       country: new FormControl(this.countryDefault)
     });
-
+    let lang = '';
+    await this.storage.get('SELECTED_LANGUAGE').then((val: string) => {
+      lang = val;
+    });
     await this.storage.get('access_token').then(val => {
       this.accessToken = val;
     });
 
-    this.http.getOptions('/general/countries', 'en', this.accessToken).subscribe((res: any) => {
+    this.http.getOptions('/general/countries', lang, this.accessToken).subscribe((res: any) => {
       console.log(res);
       this.countries = res.data.countries;
       this.countryDefault = this.countries[234];
@@ -45,6 +48,10 @@ export class NewCompanyPageThreePage implements OnInit {
   get country(){return this.formData.get('country')}
 
   async onSubmit(){
+    let lang = '';
+    await this.storage.get('SELECTED_LANGUAGE').then((val: string) => {
+      lang = val;
+    });
     let data: any;
     await this.storage.get('newCompany').then(val => {
       data = val;
@@ -55,7 +62,7 @@ export class NewCompanyPageThreePage implements OnInit {
     data.country_id = this.country.value.hashed_id;
     console.log(data);
 
-    this.http.createCompany('/company/new', data, 'en', this.accessToken).subscribe((res: any) => {
+    this.http.createCompany('/company/new', data, lang, this.accessToken).subscribe((res: any) => {
       console.log(res);
       this.router.navigate(['/menu/dashboard']);
     }, err => {

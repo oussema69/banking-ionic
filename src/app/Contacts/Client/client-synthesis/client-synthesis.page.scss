@@ -9,14 +9,68 @@
     transform: translate(-500%, -110%);
     float: right;
 }
+ion-content{
+    transform: translateY(3%);
 
+}
+ul#menu li {
+    display:inline;
+      display: inline;
+   
+     padding: 3% ;
+     width: 19%;
+     color:#b9b9b9;
+     font-size: 15px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-weight: bold;
+  }
 ion-title{
-    text-align: center;
-    transform: translate(-45px, 5%);
+    
+   
+    transform: translate(23px, -4%);
     color: #0B1D39;
-    font-family: 'Demi';
-    font-size: 130%;
-    font-weight: 600;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    font-weight: bold;
+}
+.ind-card-1{
+    transform: translate(0%, -39%);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.chart{
+    transform: translateX(3%);
+}
+.square {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(99, 18, 248);
+  }
+  .square1 {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(25, 218, 60);
+  }
+  .square2   {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(218, 26, 26);
+  }
+  #element1 {display:inline-block;margin-right:10px;} 
+  #element2 {
+    display:inline-block;
+    font-size: 10px;
+    color: #b9b9b9;
+    font-weight: bold;
+} 
+.ios ion-title{
+    
+    transform: translate(-80px, 26%);
+    color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    font-weight: bold;
 }
 
 ion-header{

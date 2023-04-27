@@ -16,15 +16,15 @@
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
+    "@angular/platform-browser": "^14.0.0",
+    "@angular/platform-browser-dynamic": "^14.0.0",
+    "@angular/router": "^14.0.0",
     "@awesome-cordova-plugins/core": "^5.39.1",
     "@awesome-cordova-plugins/device": "^5.40.0",
     "@awesome-cordova-plugins/facebook": "^5.39.1",
     "@awesome-cordova-plugins/google-plus": "^5.39.1",
     "@awesome-cordova-plugins/in-app-browser": "^5.41.0",
     "@awesome-cordova-plugins/keyboard": "^5.40.0",
-    "@angular/platform-browser": "^14.0.0",
-    "@angular/platform-browser-dynamic": "^14.0.0",
-    "@angular/router": "^14.0.0",
     "@capacitor/android": "4.1.0",
     "@capacitor/app": "4.0.1",
     "@capacitor/core": "4.1.0",
@@ -32,12 +32,14 @@
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
     "@ionic/angular": "^6.1.9",
+    "@ionic/storage": "^3.0.6",
+    "@ionic/storage-angular": "^3.0.6",
     "@ng-bootstrap/ng-bootstrap": "*",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "@ionic/storage": "^3.0.6",
-    "@ionic/storage-angular": "^3.0.6",
+    "bootstrap": "^5.2.2",
     "highcharts": "^10.0.0",
+    "ionic-scrolling-header": "^0.2.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -75,5 +77,8 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.7.3"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "config": {
+    "ionic_sass": "./sass.config.js"
+  }
 }

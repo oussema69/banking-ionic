@@ -2,11 +2,19 @@ ion-title{
     text-align: center;
     transform: translate(-45px, 5%);
     color: #0B1D39;
-    font-family: 'Demi';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 150%;
-    font-weight: 600;
+    font-weight:bold;
 }
-
+.ios ion-title{
+    text-align: center;
+    transform: translate(-45px, 30%);
+    
+    color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    font-weight: bold;
+}
 ion-header{
     padding-top: 5%;
 }
@@ -17,20 +25,23 @@ ion-header{
     left: 30px;
     top: 5px;
 }
+ion-content{
+    transform: translateY(3%);
 
+}
 .rounded-card{
     --background: #FFFFFF;
     box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    height: 90%;
+    height: 99%;
     margin-bottom: 5%;
 }
 
 .sub-title{
     transform: translateX(5%);
-    font-family: 'Medium';
-    font-weight: 599;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
     margin-top: 4%;
 }
 
@@ -49,7 +60,7 @@ ion-header{
     padding-left: 2%;
     padding-right: 2%;
     font-family: "Book";
-    color: #00000099;
+    color: #9a999999;
     font-weight: 900;
     position: absolute;
     background-color: white;
@@ -61,7 +72,7 @@ ion-header{
     padding-left: 2%;
     padding-right: 2%;
     font-family: "Book";
-    color: #00000099;
+    color: #9a999999;
     font-weight: 900;
     position: absolute;
     background-color: white;
@@ -73,7 +84,7 @@ ion-header{
     padding-left: 2%;
     padding-right: 2%;
     font-family: "Book";
-    color: #00000099;
+    color: #9a999999;
     font-weight: 900;
     position: absolute;
     background-color: white;

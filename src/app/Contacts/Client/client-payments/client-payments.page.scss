@@ -8,15 +8,35 @@
 ion-header{
     padding-top: 5%;
 }
+.img{
+    width: 69%;
+    height: 30%;
+    transform: translate(17%, 12%);
 
+}
+.empty-par{
+    transform: translate(0%, 102%);
+    text-align: center;
+    color:#A6BCD0;
+  font-family: 'Futura PT','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: meduim;
+
+}
 ion-title{
     text-align: center;
-    transform: translate(-10%, 5%);
+    transform: translate(-24%, -6%);
     color: #0B1D39;
     font-family: 'Demi';
     font-size: 130%;
     font-weight: 600;
 }
+.ios ion-title{
+    text-align: center;
+    transform: translate(-20%, 22%);
+    color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 130%;
+    font-weight: bold;}
 
 .rounded-card{
     --background: #FFFFFF;
@@ -62,7 +82,7 @@ ion-title{
     margin-right: 25px;
     margin-left: 10px;
     margin-bottom: 10px;
-    height: 40px;
+    height: 36px;
     text-align: center;
 }
 
@@ -74,9 +94,9 @@ ion-title{
 .display-invoice{
     color: #0B1D39;
     transform: translateX(2%);
-    font-family: 'Medium';
-    font-size: 120%;
-    font-weight: 600;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 13.50px;
+    font-weight: bold;
 }
 
 .date{
@@ -94,7 +114,7 @@ ion-title{
     border-radius: 5px;
     font-family: 'Medium';
     text-align: center;
-    transform: translate(0%, 60%);
+    transform: translate(0%, 76%);
 }
 
 .menu{
@@ -104,7 +124,7 @@ ion-title{
 
 .menu-item{
     float: right;
-    transform: translate(-100%, -40%);
+    transform: translate(-100%, -23%);
 }
 
 .search-img{

@@ -1,9 +1,8 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar (click)="goBack()">
+<ion-header class="ion-no-border" (click)="goBack()">
+ 
     <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
     <ion-title>{{name}}</ion-title>
-    <img src="../../assets/img/Tracé 468.png" class="menu">
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
@@ -12,7 +11,7 @@
       <ion-col class="rounded-card center margin-1">
         <img src="../../assets/img/Icons - Widget Illustration2.png">
         <div class="card-content-1"> 
-          Received payments
+        {{'synthesie.payment' | translate}}
         </div>
         <div class="card-content-2">
           {{incomesTotal.toFixed(2)}}<sup class="card-content-3">TND</sup>
@@ -21,7 +20,7 @@
       <ion-col class="rounded-card center margin-2">
         <img src="../../assets/img/Icons - Widget Illustration1.png">
         <div class="card-content-1"> 
-          Unpaid balance
+          {{'synthesie.balance' | translate}}
         </div>
         <div class="card-content-2">
           {{unpaid.toFixed(2)}}<sup class="card-content-3">TND</sup>
@@ -32,7 +31,8 @@
       <ion-col class="rounded-card center margin-1">
         <img src="../../assets/img/Icons - Widget Illustration3.png">
         <div class="card-content-1"> 
-          Invoices
+          {{'synthesie.invoces' | translate}}
+
         </div>
         <div class="card-content-2">
           {{invoicesTotal.toFixed(2)}}<sup class="card-content-3">TND</sup>
@@ -41,7 +41,7 @@
       <ion-col class="rounded-card center margin-2">
         <img src="../../assets/img/Icons - Widget Illustration.png">
         <div class="card-content-1"> 
-          Estimates
+          {{'synthesie.estimat' | translate}}
         </div>
         <div class="card-content-2">
           {{estimatesTotal.toFixed(2)}}<sup class="card-content-3">TND</sup>
@@ -51,9 +51,45 @@
   </ion-grid>
   <div class="rounded-card margin-3">
     <div class="card2-content">
-      Current Exercise Sales Analytics
+      {{'synthesie.exercice' | translate}}
     </div>
-    <div id="container"></div>
+    <div class="chart">
+ <ion-grid>
+
+      <ion-row>
+        <ion-col class="subtitle-card-1">
+          
+          <div class="square" id="element1"></div>
+          <span id="element2" >{{'DASH.subTitle1Card1' | translate}}</span>
+
+        </ion-col>
+        <ion-col class="subtitle-card-1">
+          <div class="square1" id="element1"></div>
+
+          <span id="element2">{{'DASH.subTitle2Card1' | translate}}</span>
+        </ion-col>
+        <ion-col class="subtitle-card-1">
+          <div class="square2" id="element1"></div>
+
+         <span id="element2"> {{'DASH.subTitle3Card1' | translate}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ind-card-1">
+         {{this.estimatesTotal}} K+
+        </ion-col>
+        <ion-col class="ind-card-1">
+          {{this.invoicesTotal }} K+
+        </ion-col>
+        <ion-col class="ind-card-1">
+          {{this.incomesTotal }} K+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
+    <div id="container">
+   
+    </div>
   </div>
 
 </ion-content>

@@ -40,7 +40,7 @@ export class HttpService {
     console.log(url);
     return this.httpClient.get(url, { 'headers': headers })
   }
-
+//whats the service name
   getOptions(serviceName: string, lang: string, acces_token: string){
     const headers = new HttpHeaders()
       .set('Authorization', acces_token);
@@ -73,7 +73,7 @@ export class HttpService {
     console.log(data);
     return this.httpClient.post(url, data, {'headers': headers});
   }
-
+  //whats the service name and data
   resetPassword(serviceName: string, data: any, lang: string){
     const headers = new HttpHeaders();
     const url = environment.apiUrl1 + lang + environment.apiUrl2 + serviceName;
@@ -88,6 +88,14 @@ export class HttpService {
     console.log(url);
     return this.httpClient.post(url, data, {'headers': headers});
   }
+ //////////////
+  SubscriptionLists(serviceName: string,  lang: string, acces_token: string){
+    const headers = new HttpHeaders()
+      .set('Authorization', acces_token);
+    const url = environment.apiUrl1 + lang + environment.apiUrl2 + serviceName;
+    console.log(url);
+    return this.httpClient.get(url,  {'headers': headers});
+  }
 
   subscriptionCallBack(serviceName: string, data: any, lang: string, acces_token: string){
     const headers = new HttpHeaders()
@@ -97,7 +105,7 @@ export class HttpService {
     return this.httpClient.post(url, data, {'headers': headers});
   }
 
-  createPaymee(){
+  createPaymee(amount:GLfloat){
     const headers = new HttpHeaders()
       .set('Authorization', 'Token 22d3285a517027c19aa0e01e7a695455e2398be8')
       .set('Content-type', 'application/json');
@@ -105,7 +113,7 @@ export class HttpService {
     console.log(url);
     let data = {
       "vendor": 1460,
-      "amount": 12.5,
+      "amount": amount,
       "note": "Order #1"
     };
     return this.httpClient.post(url, data, {'headers': headers});

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
 import { alertController } from '@ionic/core/dist/ionic/index.esm.js';
@@ -18,6 +18,10 @@ export class RegistrationPage implements OnInit {
 
   showPassword = false;
   formData: FormGroup;
+  @ViewChild('nameInput', {read: ElementRef}) nameInput: ElementRef;
+  @ViewChild('emailInput', {read: ElementRef}) emailInput: ElementRef;
+  @ViewChild('telInput', {read: ElementRef}) telInput: ElementRef;
+  @ViewChild('passInput', {read: ElementRef}) passInput: ElementRef;
 
   constructor(private http: HttpService, 
               private router: Router,  
@@ -25,20 +29,24 @@ export class RegistrationPage implements OnInit {
               private languageService: LanguageService, 
               private storage: Storage, 
               private googlePlus: GooglePlus,
-              private device: Device) { }
+              private device: Device,
+              private renderer: Renderer2) { }
 
   async ngOnInit() {
     console.log(this.device);
     this.formData = new FormGroup({
+      tel: new FormControl('', [Validators.pattern("^[0-9]*$"),Validators.required,Validators.minLength(8)]),
       name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required,Validators.minLength(8)],),
     });
   }
 
   get name(){return this.formData.get('name');}
   get email(){return this.formData.get('email');}
   get password(){return this.formData.get('password');}
+  get tel(){return this.formData.get('tel');}
+
 
   async onSubmit(){
     let lang = '';
@@ -46,7 +54,7 @@ export class RegistrationPage implements OnInit {
       lang = val;
     });
 
-    if(this.name.invalid || this.email.invalid || this.password.invalid){
+    if(this.name.invalid || this.email.invalid || this.password.invalid|| this.tel.invalid){
       if(lang == 'en'){
         const alert = await alertController.create({
           header: 'Oops',
@@ -59,7 +67,7 @@ export class RegistrationPage implements OnInit {
         const alert = await alertController.create({
           header: 'Oops',
           message: 'doit remplire le formulaire' ,
-          buttons: ['Agree'],
+          buttons: ['Accepter'],
         });
         await alert.present();
       }
@@ -67,7 +75,7 @@ export class RegistrationPage implements OnInit {
         const alert = await alertController.create({
           header: 'Oops',
           message: 'يجب إكمال المعلومات' ,
-          buttons: ['Agree'],
+          buttons: ['موافق'],
         });
         await alert.present();
       }
@@ -81,12 +89,31 @@ export class RegistrationPage implements OnInit {
         if(res.status.code == 403){
           this.router.navigate(['/emailvalid', this.formData.value.email]);
         }else{
-          const alert = await alertController.create({
-            header: 'Oops',
-            message: res.status.message || res.message,
-            buttons: ['Agree'],
-          });
-          await alert.present();
+          
+          if(lang == 'en'){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.status.message || res.message ,
+              buttons: ['Agree'],
+            });
+            await alert.present();
+          }
+          if(lang == 'fr'){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.status.message || res.message,
+              buttons: ['Accepter'],
+            });
+            await alert.present();
+          }
+          if(lang == 'ar'){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.status.message || res.message,
+              buttons: ['موافق'],
+            });
+            await alert.present();
+          }
         }
       }
     },
@@ -124,6 +151,7 @@ export class RegistrationPage implements OnInit {
       const dataSend = {
         name: resultat.displayName,
         email: resultat.email,
+        tel:resultat.tel,
         uuid: this.device.uuid,
       platform: this.device.platform,
       os_version: this.device.version,
@@ -137,12 +165,30 @@ export class RegistrationPage implements OnInit {
       this.http.login('/user/social/google', dataSend, lang).subscribe(async (res: any) => {
         console.log(res);
         if(res.status.code != 200){
-          const alert = await alertController.create({
-            header: 'Oops',
-            message: res.status.message || res.message,
-            buttons: ['Agree'],
-          });
-          await alert.present();
+          if(lang == 'en'){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.status.message || res.message ,
+              buttons: ['Agree'],
+            });
+            await alert.present();
+          }
+          if(lang == 'fr'){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.status.message || res.message,
+              buttons: ['Accepter'],
+            });
+            await alert.present();
+          }
+          if(lang == 'ar'){
+            const alert = await alertController.create({
+              header: 'Oops',
+              message: res.status.message || res.message,
+              buttons: ['موافق'],
+            });
+            await alert.present();
+          }
         }else{
           this.storage.set('name', res.data.user.name);
           this.storage.set('access_token',res.data.device.access_token);
@@ -154,5 +200,40 @@ export class RegistrationPage implements OnInit {
         console.log(err);
       });
   }
-
+  validateName(){
+    if(this.name.invalid){
+      this.renderer.removeClass(this.nameInput.nativeElement, 'input-border-crr');
+      this.renderer.addClass(this.nameInput.nativeElement, 'input-border-err');
+    }else{
+      this.renderer.removeClass(this.nameInput.nativeElement, 'input-border-err');
+      this.renderer.addClass(this.nameInput.nativeElement, 'input-border-crr');
+    }
+  }
+  validateEmail(){
+    if(this.email.invalid){
+      this.renderer.removeClass(this.emailInput.nativeElement, 'input-border-crr');
+      this.renderer.addClass(this.emailInput.nativeElement, 'input-border-err');
+    }else{
+      this.renderer.removeClass(this.emailInput.nativeElement, 'input-border-err');
+      this.renderer.addClass(this.emailInput.nativeElement, 'input-border-crr');
+    }
+  }
+  validateTel(){
+    if(this.tel.invalid){
+      this.renderer.removeClass(this.telInput.nativeElement, 'input-border-crr');
+      this.renderer.addClass(this.telInput.nativeElement, 'input-border-err');
+    }else{
+      this.renderer.removeClass(this.telInput.nativeElement, 'input-border-err');
+      this.renderer.addClass(this.telInput.nativeElement, 'input-border-crr');
+    }
+  }
+  validatePass(){
+    if(this.password.invalid){
+      this.renderer.removeClass(this.passInput.nativeElement, 'input-border-crr');
+      this.renderer.addClass(this.passInput.nativeElement, 'input-border-err');
+    }else{
+      this.renderer.removeClass(this.passInput.nativeElement, 'input-border-err');
+      this.renderer.addClass(this.passInput.nativeElement, 'input-border-crr');
+    }
+  }
 }

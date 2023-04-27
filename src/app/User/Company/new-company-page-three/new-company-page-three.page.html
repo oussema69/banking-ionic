@@ -1,8 +1,8 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar (click)="goBack()">
-    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent">
-    <ion-title>New Company</ion-title>
-  </ion-toolbar>
+  
+    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent" (click)="goBack()">
+    <ion-title>{{ 'COMPANYONE.header' | translate}}</ion-title>
+ 
 </ion-header>
 
 <ion-content>
@@ -11,29 +11,30 @@
       <ion-grid class="content">
         <ion-row>
           <ion-col class="sub-title">
-            Financial Information
+            {{ 'COMPANYTHREE.info' | translate}}
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="Bank" formControlName="bank"></ion-input>
+            <ion-input type="text" placeholder="{{ 'COMPANYTHREE.bank' | translate}}" formControlName="bank"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="BIC / SWIFT" formControlName="bs"></ion-input>
+            <ion-input type="text" placeholder="{{ 'COMPANYTHREE.bic' | translate}}" formControlName="bs"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="R.I.B" formControlName="rib"></ion-input>
+            <ion-input type="text" placeholder="{{ 'COMPANYTHREE.rib' | translate}}" formControlName="rib"></ion-input>
           </ion-col>
         </ion-row>
-        <div class="label">
-          Country
-        </div>
+   
         <ion-row>
           <ion-col class="input-border">
+            <div class="label">
+              {{ 'COMPANYTHREE.country' | translate}}
+            </div>
             <ion-select [value]="countryDefault" formControlName="country" class="select-option" interface="popover">
               <ion-select-option *ngFor="let country of countries" [value]="country">{{country.title}}</ion-select-option>
             </ion-select>
@@ -49,7 +50,7 @@
     <ion-grid>
       <ion-row>
         <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+          <button class="btn padding-btn text-light text-btn">{{ 'COMPANYONE.ctn' | translate}}</button>
         </ion-col>
       </ion-row>
     </ion-grid>

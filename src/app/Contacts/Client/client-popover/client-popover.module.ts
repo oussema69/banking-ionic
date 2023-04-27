@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ClientPopoverPageRoutingModule } from './client-popover-routing.module';
 
 import { ClientPopoverPage } from './client-popover.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClientPopoverPageRoutingModule
+    ClientPopoverPageRoutingModule,
+    TranslateModule
   ],
   declarations: [ClientPopoverPage]
 })

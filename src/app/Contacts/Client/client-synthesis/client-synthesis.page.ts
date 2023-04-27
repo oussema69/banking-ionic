@@ -5,7 +5,7 @@ import { HttpService } from 'src/app/services/http.service';
 import { Storage } from '@ionic/storage';
 import { Location } from '@angular/common';
 import { LoadingController, Platform } from '@ionic/angular';
-import { Subscription } from 'rxjs';
+import { noop, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-client-synthesis',
@@ -24,7 +24,10 @@ export class ClientSynthesisPage implements OnInit, OnDestroy {
   incomesTotal = 0;
   unpaid = 0;
   subscription: Subscription;
-
+  estimatesConverted:any = []
+  incomesConverted:any=[]
+  invoicesConverted:any = []
+  orgmonth:any=[];
   constructor(private storage: Storage, 
               private http: HttpService, 
               private route :ActivatedRoute, 
@@ -52,30 +55,57 @@ export class ClientSynthesisPage implements OnInit, OnDestroy {
       this.lang = val;
     });
     this.http.getOptions('/company/'+this.company_id+'/client/'+this.id+'/synthesis', this.lang, this.acces_token).subscribe(async (res:any) => {
-      console.log(res);
+      console.log(res,'synthesis');
+
       await loading.dismiss();
       this.name = res.data.client.display_name;
+      //totale estimation
       this.estimatesTotal = res.data.estimatesTotalConvertedSum;
+      //total invoice
       this.invoicesTotal = res.data.invoicesTotalConvertedSum;
+      // Received payments total
       this.incomesTotal = res.data.incomesTotalConvertedSum;
+      //unpaid total
       this.unpaid = res.data.client.unpaid;
-      let estimatesConverted = res.data.estimatesConvertedSum;
-      let incomesConverted = res.data.incomesConvertedSum;
-      let invoicesConverted = res.data.invoicesConvertedSum;
-      let dataEstimates = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-      let dataIncomes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-      let dataInvoices = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-      for(const prop in estimatesConverted)
-        dataEstimates[+prop-1] = estimatesConverted[prop];
-      for(const prop in incomesConverted)
-        dataIncomes[+prop-1] = incomesConverted[prop];
-      for(const prop in invoicesConverted)
-        dataInvoices[+prop-1] = invoicesConverted[prop];
-      this.options.series[0].data = dataEstimates;
-      this.options.series[1].data = dataInvoices;
-      this.options.series[2].data = dataIncomes;
+      //table of estimation
+       this.estimatesConverted = res.data.estimatesConvertedSum;
+    // this.estimatesConverted = [50, 50, 50, 50, 50, 0, 0, 0, 0, 0, 0, 0];
+      console.log('estimate',this.estimatesConverted)
+      /////
+      //table payment
+      this.incomesConverted = res.data.incomesConvertedSum;
+      console.log('Received payments total',this.incomesConverted)
+     // this.incomesConverted=[30, 50, 50, 50, 50, 0, 0, 0, 0, 0, 0, 0];
+///categorie
+for (const [akey, avalue] of Object.entries(res.data.organisedMonths  )) {
+  this.orgmonth.push(avalue )
+ 
+   
+}
+
+//table invoices
+      this.invoicesConverted = res.data.invoicesConvertedSum;
+      console.log('invoice',this.invoicesConverted)
+      if(this.invoicesConverted == 0){
+        this.invoicesConverted=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+      if(this.estimatesConverted == 0){
+        this.estimatesConverted=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+      if(this.incomesConverted == 0){
+        this.incomesConverted=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      }
+    //  this.invoicesConverted =[0, 10, 20, 30, 40, 40, 60, 0, 0, 0, 0, 0];
+///
+    
+     
+      this.options.series[0].data =  this.estimatesConverted;
+      this.options.series[1].data = this.invoicesConverted;
+      this.options.series[2].data = this.incomesConverted;
       Highcharts.chart('container', this.options);
-    }, err => {
+      console.log('container',this.options)
+    
+       }, err => {
       console.log(err);
     });
   }
@@ -84,8 +114,26 @@ export class ClientSynthesisPage implements OnInit, OnDestroy {
     chart: {
       type: 'column',
       height: 200,
-      width: 310
+    
     },
+    scales: {
+      xAxes: [{
+      gridLines: {
+      display:false
+          },
+      categoryPercentage: 1.0,
+      barPercentage: 0.4,
+      scaleLabel: {
+          display: true,
+          fontSize: 10,
+          font: 'Georgia',
+          labelString: 'service request',
+          fontColor: '#808080',
+          padding: 0
+              }
+
+            }],
+          },
     title: {
       text: ''
     },
@@ -94,25 +142,43 @@ export class ClientSynthesisPage implements OnInit, OnDestroy {
     },
 
     xAxis: {
-      categories:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+      categories:this.orgmonth
 
     },
+    yAxis: {
+      title: {
+          text: ''
+      }
+  }, 
+  legend: {
+    symbolPadding: 0,
+    symbolWidth: 0,
+    symbolHeight: 0,
+    squareSymbol: false
+  },
     series: [
         {
-          name: 'Estimates',
-          data: [10, 5, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+          data: [],
+          name:'', 
         },{
-          name: 'Invoices',
-          data: [10, 20, 30, 10, 2, 3, 1, 0, 0, 0, 0, 0]
+          name: '',
+          data: []
         },{
-          name: 'Received Payments',
-          data: [10, 20, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          name: '',
+          data: []
         }
-      ]
+      ],
+      colors:[
+        'blue',
+        'green',
+        'red'
+      ],
+   
   }
 
   goBack(){
     this.location.back()
   }
 
+  
 }

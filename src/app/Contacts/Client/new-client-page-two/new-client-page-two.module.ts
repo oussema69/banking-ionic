@@ -1,19 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { NewClientPageTwoPageRoutingModule } from './new-client-page-two-routing.module';
 
 import { NewClientPageTwoPage } from './new-client-page-two.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NewClientPageTwoPageRoutingModule
+    ReactiveFormsModule,
+    NewClientPageTwoPageRoutingModule,
+    TranslateModule,
   ],
   declarations: [NewClientPageTwoPage]
 })

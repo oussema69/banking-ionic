@@ -24,9 +24,12 @@
         "alrt1inp2": "E-mail est requis",
         "alrt2inp2": "E-mail invalide",
         "alrt3inp2": "Doit contenir plus de 6 caractères",
+        "telinput":"Votre telephone",
+        "alerttel":"telephone est requis",
+        "alerttel1":"Doit contenir plus de 8 chiffre",
         "input3": "Votre mot de passe",
         "alrt1inp3": "Mot de passe requis",
-        "alrt2inp3": "Doit contenir plus de 6 caractères",
+        "alrt2inp3": "Doit contenir plus de 8 caractères",
         "show": "Afficher",
         "hide": "Cacher",
         "info3": "Ou continuer avec :",
@@ -64,5 +67,137 @@
         "title2ListCard": "Revenus",
         "title3ListCard": "Résultats",
         "titleCard2": "Principales catégories de dépenses"
-    }
+    },
+    "SUBSCRIPTION":{
+        "btn-continu":"Continuer",
+        "title":"plans d'abonnement",
+        "description":"Veuillez choisir le plan qui répond aux besoins  ",
+        "after-br":"de votre entreprise",
+        "year":"Annuellement",
+        "month":"Mensuelle",
+        "price":"Gratuit",
+        "priceYear":"Dinard / Année",
+        "priceMonth":"Dinard / Mois",
+        "afterprice":"Le meilleur plan pour tout essayer chez Birou.",
+        "afterprice2":"L'abonnement le plus populaire chez Birou.",
+        "afterprice3":"Le plan qui vous donne tout ce dont vous pourriez avoir besoin.",
+        "startup":"haute qualité",
+        "prof":"Professionnelle"
+
+
+
+      },
+      "COMPANYONE":{
+        "header":"Nouvelle Compagnie",
+        "logo":"Ajouter Une Photo De Logo",
+        "info":"Informations générales",
+        "name":"Nom de l'entreprise",
+        "pdf":"langue pdf",
+        "tel":"Numero De Telephone",
+        "website":"Site Internet",
+        "ctn":"Continuer",
+        "nameError":"nom de sociéte requis",
+        "firstName":"Prénom obligatoire",
+        "telError1":"numero de telephone requis",
+        "telError2":"doit contenir seullement des chiffres",
+        "telError3":"doit contenir aux moins 8 chiffres",
+        "websiteError":"site web requis",
+        "webError":"doit respecter les caractéristiques de l'url",
+        "en":"Anglais",
+        "ar":"Arabe",
+        "fr":"Français"
+      },
+      "COMPANYTWO":{
+        "act":"Activité",
+        "tax":"Numéro d'identification fiscale",
+        "ex":" Exercise",
+        "curr":"Devise principale"
+      
+      },
+      "COMPANYTHREE":{
+       "info":"Information financière",
+       "bank":"Banque",
+       "bic":"BIC/SWIFT",
+       "rib":"R.I.B",
+       "country":"Pays"
+      
+      },
+      "MENU":{
+        "company":"Gestion de l'entreprise",
+        "dash":"Tableau de bord",
+        "ctn":"Contacts",
+        "sales":"Ventes",
+        "stock":"Stocker"
+
+        
+      },
+      "NOINTERNET":{
+        "text1":"Pardon    ",
+        "text2":"S'il vous plait, vérifiez votre connexion internet",
+        "text3":"et réessayez plus tard",
+        "title":"Pas d'Internet",
+        "btn":"Réessayer"
+       },
+       "ListeClient":{
+        "title":"Clients",
+        "search":"Chercher",
+        "display":"Afficher nom",
+        "status":"Statut"
+       },
+       "clientone":{
+        "title":"Nouveaux Client",
+        "info":"Informations générales",
+        "title1":"Titre",
+        "Fname":"Prénom",
+        "Lname":"Nom de famille",
+        "company":"Compagnie",
+        "email":"E-mail",
+        "phone":"téléphone",
+        "website":"Site Internet"
+       },
+       "clienttwo":{
+        "info":"Information professionnelle",
+        "type":"Type",
+        "Professional":"Professionnelle",
+        "Particuler":"Particuler",
+        "tax":"Numéro d'identification fiscale",
+        "act":"Activité",
+        "cur":"Devise principale",
+        "deadline":"Conditions de paiement"
+       },
+       "clientthree":{
+        "info":"Adresse de facturation",
+        "adr":"Adresse",
+        "state":"État",
+        "zip":"Code postal",
+        "country":"Pays",
+        "del":"Adresse de livraison",
+        "note":"Remarques",
+        "placeholder":"Vous pouvez mettre ici tous les commentaires que vous jugez pertinents. (Optionnel)",
+        "ctn":"Confirmer"
+       },
+       "popover":{
+        "synth":"La synthèse",
+        "time":"Chronologie",
+        "invoice":"Factures",
+        "estimate":"Estimations",
+        "del":"Bons de livraison",
+        "sr":"Bons de sortie",
+        "pay":"Paiements",
+        "edit":"Modifier le client",
+        "supp":"Supprimer le client"
+       },
+       "synthesie":{
+        "payment":"Paiements reçus",
+        "balance":"Solde impayé",
+        "invoces":"Factures",
+        "estimat":"Estimations",
+        "exercice":"Analyse des ventes de l'exercice actuel"
+
+       },
+       "empty":{
+        "line1":"cette page est vide pour l'instant.",
+        "line2":"Créez votre première entrée dès maintenant en",
+        "line3":"en appuyant sur le bouton + de votre écran"
+       }
 }

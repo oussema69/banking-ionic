@@ -7,7 +7,7 @@
       <form [formGroup]="formData" (ngSubmit)="onSubmit" class="form-height">
         <img class="container-1" src="../../assets/img/Groupe 31.png">
         <div class="content">
-          {{ 'VALID.body' | translate}}
+          
         </div>
         <ion-item lines="none" class="container-2">
           <ion-input type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');this.value.length>1?this.value=this.value.charAt(0):null;" class="roundedInput" formControlName="num1" (ionInput)="nextNum('num1')"></ion-input>
@@ -28,8 +28,11 @@
         </ion-col>
       </ion-row>
       <ion-row>
+        
         <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-          <button class="btn padding-btn text-light text-btn">{{ 'VALID.btn' | translate}}</button>
+          <ion-button shape="round" color="primary" class="btn-confirm">
+            {{ 'VALID.btn' | translate}}
+          </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

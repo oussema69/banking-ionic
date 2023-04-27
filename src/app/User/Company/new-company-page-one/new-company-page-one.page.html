@@ -1,63 +1,90 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar (click)="goBack()">
-    <img src="../../assets/img/Icon material-arrow_back.png" class="precedent">
-    <ion-title>New Company</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+<ion-header  class="bar bar-header bar-light"  >
+
+  <img src="../../assets/img/Icon material-arrow_back.png" class="precedent" (click)="goBack()">
+  <ion-title >
+{{ 'COMPANYONE.header' | translate}}
+  </ion-title>
+</ion-header>
+<ion-content >
  <div class="rounded-card"> 
     <form [formGroup]="formData" (ngSubmit)="onSubmit">
       <ion-grid class="content">
         <ion-row>
           <ion-col class="img-col">
-            <img class="image" src="../../assets/img/Groupe 17.png" onclick="document.querySelector('#inputFile').click()">
-            <div onclick="document.querySelector('#inputFile').click()" class="logo-text">
-              Add logo photo
+            <div >
+              <img class="image" class="image" [src]="url" width="40px" height="70px" >
+            </div>
+            <div  class="logo-text">
+              <input type="file" id="myFileInput" (change)="onImageUpload($event)">
+
+              <div class="logo">{{ 'COMPANYONE.logo' | translate}}</div>
             </div>
             <input type="file" class="input-col" id="inputFile" hidden>
           </ion-col>
         </ion-row>
+        <div class="sub-title" >
+          
         <ion-row>
-          <ion-col class="sub-title">
-            General Information
+          <ion-col class="title" >
+            {{ 'COMPANYONE.info' | translate}}
           </ion-col>
         </ion-row>
+       
         <ion-row>
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="Company Name" formControlName="companyName"></ion-input>
+          <ion-col class="input-border" #companyNameInput>
+            <div class="label">
+              {{ 'COMPANYONE.name' | translate}}
+            </div>
+            <ion-input type="text" class="placeholder-color" (ionChange)="validateCName()" placeholder="Birou Suite" formControlName="companyName"></ion-input>
           </ion-col>
+
         </ion-row>
-        <div class="label">
-        PDF Language
-        </div>
+        <ion-item *ngIf="companyName.errors?.required && companyName.touched" class="error"> {{ 'COMPANYONE.nameError' | translate}}</ion-item>
+
+      
         <ion-row>
           <ion-col class="input-border">
+            <div class="label">
+              {{ 'COMPANYONE.pdf' | translate}}
+            </div>
             <ion-select value="en" formControlName="pdfLang" class="select-option" interface="popover">
-              <ion-select-option value="en">English</ion-select-option>
-              <ion-select-option value="fr">Français</ion-select-option>
-              <ion-select-option value="ar">Arabe</ion-select-option>
+              <ion-select-option value="en"> {{ 'COMPANYONE.en' | translate}}</ion-select-option>
+              <ion-select-option value="fr">{{ 'COMPANYONE.fr' | translate}}</ion-select-option>
+              <ion-select-option value="ar">{{ 'COMPANYONE.ar' | translate}}</ion-select-option>
             </ion-select>
           </ion-col>
         </ion-row>
-        <ion-row class="row-4">
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="Phone Number" formControlName="phoneNumber"></ion-input>
+        <ion-row class="row-4" >
+          <ion-col class="input-border" #telInput>
+            <ion-input type="text" placeholder="{{ 'COMPANYONE.tel' | translate}}" formControlName="phoneNumber" (ionChange)="validateTel()"></ion-input>
           </ion-col>
         </ion-row>
+        <ion-item *ngIf="phoneNumber.errors?.required && phoneNumber.touched" class="error"> {{ 'COMPANYONE.telError1' | translate}}</ion-item>
+        <ion-item *ngIf="phoneNumber.errors?.pattern && phoneNumber.touched" class="error"> {{ 'COMPANYONE.telError2' | translate}}</ion-item>
+        <ion-item *ngIf="phoneNumber.errors?.['minlength'] && phoneNumber.touched" class="error"> {{ 'COMPANYONE.telError3' | translate}}</ion-item>
+
         <ion-row class="row-5">
-          <ion-col class="input-border">
-            <ion-input type="text" placeholder="Web Site" formControlName="webSite"></ion-input>
+          <ion-col class="input-border" #webInput>
+            <ion-input type="text" placeholder="{{ 'COMPANYONE.website' | translate}}" formControlName="webSite" (ionChange)="validateWeb()"></ion-input>
           </ion-col>
+
         </ion-row>
+        <ion-item *ngIf="webSite.errors?.pattern && webSite.touched" class="error"> {{ 'COMPANYONE.webError' | translate}}</ion-item>
+
+      </div>
       </ion-grid>
     </form>
   </div>
+
+</ion-content>
+<ion-footer class="ion-no-border">
   <ion-grid>
+    
     <ion-row>
       <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-        <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+        <button class="btn padding-btn text-light text-btn">{{ 'COMPANYONE.ctn' | translate}}</button>
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
+</ion-footer>

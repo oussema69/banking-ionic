@@ -5,6 +5,8 @@ import { Keyboard } from '@awesome-cordova-plugins/keyboard/ngx';
 import { HttpService } from 'src/app/services/http.service';
 import { alertController } from '@ionic/core/dist/ionic/index.esm.js';
 import { Location } from '@angular/common';
+import { LanguageService } from 'src/app/services/language.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-reset-password-page-one',
@@ -19,9 +21,17 @@ export class ResetPasswordPageOnePage implements OnInit {
               private keyboard: Keyboard, 
               private renderer: Renderer2, 
               private http: HttpService, 
-              private location: Location) { }
+              private location: Location,
+              private storage: Storage,
+              private languageService: LanguageService, 
+              
+              ) {   this.storage.get('user').then(val => {
+                if(val)
+                  this.router.navigate(['/menu/dashboard']);
+              });}
 
   ngOnInit() {
+    
     this.formData = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
     });
@@ -36,26 +46,77 @@ export class ResetPasswordPageOnePage implements OnInit {
   }
 
   get email(){return this.formData.get('email');}
+  
 
-  onSubmit(){
-    this.http.resetPassword('/user/reset', {email: this.email.value}, 'en').subscribe(async (res: any) => {
-      console.log(res);
-      if(res.status.code == 200){
-        const alert = await alertController.create({
-          header: '',
-          message: 'the email is sent successfully' ,
-          buttons: ['Agree'],
-        });
-        await alert.present();
-        this.router.navigate(['/login']);
-      }
-    }, err => {
-      console.log(err);
+ async onSubmit(){
+    let lang = '';
+    await this.storage.get('SELECTED_LANGUAGE').then((val: string) => {
+      lang = val;
     });
+    if(!this.email.invalid){
+      this.http.resetPassword('/user/reset', {email: this.email.value}, lang).subscribe(async (res: any) => {
+        console.log(res.status.message);
+        if(lang=='en'){
+          const alert = await alertController.create({
+            header: 'Oops',
+            message: res.status.message,
+            buttons: ['Agree'],
+          });
+          await alert.present();
+        }
+        if(lang == 'fr'){
+          const alert = await alertController.create({
+            header: 'Oops',
+            message: res.status.message ,
+            buttons: ['Accepter'],
+          });
+          await alert.present();
+        }
+        if(lang == 'ar'){
+          const alert = await alertController.create({
+            header: 'Oops',
+            message: res.status.message ,
+            buttons: ['موافق'],
+          });
+          await alert.present();
+        }
+        if(res.status.code == 200){
+          if(lang == 'en'){
+            const alert = await alertController.create({
+              header: '',
+              message: 'the email is sent successfully' ,
+              buttons: ['Agree'],
+            });
+            await alert.present();
+          }
+          if(lang == 'fr'){
+            const alert = await alertController.create({
+              header: '',
+              message: 'le e-mail est envoyé avec succès' ,
+              buttons: ['Accepter'],
+            });
+            await alert.present();
+          }
+          if(lang == 'ar'){
+            const alert = await alertController.create({
+              header: '',
+              message: 'تم إرسال البريد الإلكتروني بنجاح' ,
+              buttons: ['موافق'],
+            });
+            await alert.present();
+          }
+        
+          this.router.navigate(['/login']);
+        }
+      }, err => {
+      });
+    }
+   
   }
 
   goBack(){
     this.location.back();
+    
   }
 
 }

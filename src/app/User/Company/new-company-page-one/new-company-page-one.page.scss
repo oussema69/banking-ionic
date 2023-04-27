@@ -1,27 +1,23 @@
-.precedent{
-    float: left;
-    position: relative;
-    left: 5%;
-    top: 5px;
-}
-
-.title{
-    color: #0B1D39;
-    font-size: 24px;
-    font-family: 'Demi';
-    position: relative;
-    right: 12%;
-}
 
 .input-border{
     border: solid rgba(0, 0, 0, .12);
     border-radius: 5px;
-    margin-top: 10px;
+    //margin-top: 50%;
     margin-right: 25px;
     margin-left: 25px;
     margin-bottom: 10px;
+
+   
 }
 
+.placeholder-color{
+    --placeholder-color: rgb(16, 15, 15);
+    --placeholder-opacity: 1;
+}
+span{
+    color:#9fa6ac;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .button3-color{
     background-color: #0E78E0 ;
     margin: 10px;
@@ -42,39 +38,90 @@
     border-radius: 50px;
 }
 
-.rounded-card{
-    --background: #FFFFFF;
-    box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    height: 96%;
+
+
+#myFileInput{
+  position: absolute;
+  opacity: 0;
 }
 
-ion-title{
-    color: #0B1D39;
-    font-size: 24px;
-    font-family: 'Demi';
-    position: relative;
-    right: -10%;
+.image{
+    border-top-left-radius: 50% 50%;
+     border-top-right-radius: 50% 50%;
+      border-bottom-right-radius: 50% 50%; 
+      border-bottom-left-radius: 50% 50%; 
+      width: 18%;
+      
+
 }
 
+.title{
+ transform: translateX(5%);
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-weight: 600;
+font-size: 120%;
+}
 .content{
     transform: translateY(0%);
 }
 
 .sub-title{
-    transform: translateX(5%);
-    font-family: 'Medium';
-    font-weight: 600;
+    position: absolute;
+    top: 120px;
+    width: 100%;
+   
+ 
+}
+legend{
+   top:-3%
 }
 
-.label{
-    transform: translate(12%, 115%);
-    font-size: 70%;
-    font-family: 'Book';
-    color: #00000099;
-}
+@media  (max-height: 28px) {
+    .label{
+        transform: translate(2%, -78%);
+        font-size: 70%;
+        font-family: 'Book';
+        color: #98969699;
+        background-color: #0E78E0;
+    }
+  }
 
+
+ 
+
+  
+@media  (max-width: 500px) {
+    .label{
+        transform: translate(2%, -78%);
+
+        font-size: 70%;
+        font-family: 'Book';
+        color: #130e0e99;
+        background-color: white !important;
+        font-weight: 900;
+   
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 19%;
+    }
+  }
+  @media  (min-width: 500px) {
+    .label{
+        transform: translate(1%, -71%);
+
+        font-size: 70%;
+        font-family: 'Book';
+        color: #98969699;
+        background-color: white !important;
+        font-weight: 900;
+   
+        padding-left: 2%;
+        padding-right: 2%;
+        width: 19%;
+    }
+  }
+
+  
 .row-4{
     transform: translateY(10%);
 }
@@ -97,33 +144,81 @@ ion-input{
 
 .img-col{
     text-align: center;
-}
-
-.image{
-    width: 20%;
-}
-
-.input-col{
-    margin-left: 20%;
-}
-
-ion-header{
-    padding-top: 3%;
-}
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
     position: absolute;
-    width: 1px;
+    top:8%;
+}
+
+
+
+
+
+ion-title{
+    color: #0B1D39;
+    font-size: 25px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    left: 9%;
+    margin-top: 2%; 
+    left: 10%;
+}
+.ios ion-title{
+    color: #0B1D39;
+    font-size: 23px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute; 
+    left: -12%;
+    margin-top: 0%;
+}
+
+  ion-header{
+    height:10% ;
+
+    overflow: hidden;
+
+}
+.ios ion-header{
+    height:10% ;
+ 
+}
+
+
+
+.precedent{
+    float: left;
+    position: relative;
+    left: 5%;
+   top: 15%;
+}
+.ios .precedent{
+    float: left;
+    position: relative;
+    left: 5%;
+    margin-top: 15px;
+}
+
+.input-border-crr{
+    border: solid #44C4A1 !important;
+    border-radius: 5px;
+  
+}
+
+.input-border-err{
+    border: solid #E56353 !important;
+    border-radius: 5px;
+   
+
 }
 
 .logo-text{
-    font-family: 'Medium';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #0B1D39;
     font-weight: 500;
+    position: relative;
+}
+.error{
+    color: #e56353;
+    font-family: 'Medium';
+    font-size: small;
+    transform: translate(3%, -30%);
+    height: 30px;
 }

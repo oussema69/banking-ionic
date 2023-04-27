@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import { Storage } from '@ionic/storage';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-client-timeline',
@@ -17,8 +18,9 @@ export class ClientTimelinePage implements OnInit {
   payments: any = [];
   invoices: any = [];
   estimates: any = [];
-
-  constructor(private storage: Storage, private http: HttpService, private route :ActivatedRoute) { }
+name=""
+  constructor(private storage: Storage, private http: HttpService, private route :ActivatedRoute,
+    private location: Location) { }
 
   async ngOnInit() {
     this.id = this.route.snapshot.params[`id`];
@@ -31,6 +33,21 @@ export class ClientTimelinePage implements OnInit {
     await this.storage.get('SELECTED_LANGUAGE').then((val: string) => {
       this.lang = val;
     });
+    await this.getClient(this.lang)
   }
+  async getClient(lang:string){
+    
+    
+    this.http.getOptions('/company/'+this.company_id+'/client/'+this.id+'/synthesis', lang, this.access_token).subscribe(async (res: any) => {
+    this.name=res.data.client.display_name
+  console.log('name',this.name)
 
+    }, err => {
+      console.log(err);
+    });
+  
+}
+goBack(){
+  this.location.back()
+}
 }

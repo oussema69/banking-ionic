@@ -1,19 +1,19 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar>
+ 
     <p class="icons-lang">
       <img src="../../assets/img/Icons-Flag-Tunisia.png" class="flag" (click)="setLang('ar')">
       <img src="../../assets/img/Icons-Flag-United-states-of-america.png" class="flag" (click)="setLang('en')">
       <img src="../../assets/img/Icons-Flag-France.png" class="flag" (click)="setLang('fr')">
     </p>
     <div class="content-title">
-      <ion-menu-toggle>
+      <ion-menu-toggle autoHide="true">
         <img class="icon-menu" src="../../assets/img/Icon open-menu.png">
       </ion-menu-toggle>
       <ion-title class="title-header">
         {{'DASH.title' | translate}}
       </ion-title>
     </div>
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
@@ -60,7 +60,9 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-        <div id="container"></div>
+        <div id="container" (window:resize)="onResize()">
+          
+        </div>
       </ion-card-content>
     </ion-card>
     <div class="title-content-3">
@@ -117,9 +119,56 @@
         <div class="title-card-2">
           {{'DASH.titleCard2' | translate}}
         </div>
-        <figure class="highcharts-figure">
+        <figure class="">
+       
           <div id="container1"></div>
         </figure>
+        <div class="chart">
+          <ion-grid>
+         
+               <ion-row>
+                 <ion-col class="subtitle-card-1">
+                   
+                   <div class="square" id="element1"></div>
+                   <span id="element2" >{{cat2key[0]}}</span>
+         
+                 </ion-col>
+                 <ion-col class="subtitle-card-1">
+                   <div class="square1" id="element1"></div>
+         
+                   <span id="element2">{{cat2key[1]}}</span>
+                 </ion-col>
+              
+               </ion-row>
+               <ion-row>
+                <ion-col class="subtitle-card-1">
+                  
+                  <div class="square2" id="element1"></div>
+                  <span id="element2" >{{cat2key[2]}}</span>
+        
+                </ion-col>
+                <ion-col class="subtitle-card-1">
+                  <div class="square3" id="element1"></div>
+        
+                  <span id="element2">{{cat2key[3]}}</span>
+                </ion-col>
+             
+              </ion-row>
+              <ion-row>
+                <ion-col class="subtitle-card-1">
+                  <div class="square4" id="element1"></div>
+        
+                 <span id="element2"> {{cat2key[4]}}</span>
+                </ion-col>
+                <ion-col class="subtitle-card-1">
+                  <div class="square5" id="element1"></div>
+        
+                 <span id="element2"> {{cat2key[5]}}</span>
+                </ion-col>
+              </ion-row>
+             
+             </ion-grid>
+             </div>
       </ion-card-content>
     </ion-card>
   </div>

@@ -23,7 +23,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'full',
     redirectTo: '/menu/dashboard'
   }
 ];

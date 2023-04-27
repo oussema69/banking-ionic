@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ClientPaymentsPageRoutingModule } from './client-payments-routing.module';
 
 import { ClientPaymentsPage } from './client-payments.page';
+import { PaymentPipe } from 'src/app/pipes/payment.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ClientPaymentsPageRoutingModule
+    ClientPaymentsPageRoutingModule,
+    TranslateModule
   ],
-  declarations: [ClientPaymentsPage]
+  declarations: [ClientPaymentsPage, PaymentPipe]
 })
 export class ClientPaymentsPageModule {}

@@ -1,8 +1,10 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu">
-    <ion-title>New Client</ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border" (click)="goBack()">
+  <div >
+    <img src="../../assets/img/Icon material-arrow_back.png" class="icon-menu" (click)="goBack()">
+
+  </div>
+    <ion-title>{{'ListeClient.title' | translate}}</ion-title>
+
 </ion-header>
 
 <ion-content>
@@ -11,28 +13,28 @@
       <ion-grid>
         <ion-row>
           <ion-col class="sub-title">
-            Delivery Address
+            {{'clientthree.del' | translate}}
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="Address" [(ngModel)]="address" name="address"></ion-input>
+            <ion-input type="text" class="placeholder-color" placeholder="{{'clientthree.adr' | translate}}" [(ngModel)]="address" name="address"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="State" [(ngModel)]="state" name="state"></ion-input>
+            <ion-input type="text" placeholder="{{'clientthree.state' | translate}}" [(ngModel)]="state" name="state"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
-            <ion-input type="text" placeholder="Zip Code" [(ngModel)]="zipCode" name="zipCode"></ion-input>
+            <ion-input type="number" class="placeholder-color" placeholder="{{'clientthree.zip' | translate}}" [(ngModel)]="zipCode" name="zipCode"></ion-input>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="input-border">
             <div class="label-2">
-              Country
+              {{'clientthree.country' | translate}}
             </div>
             <ion-select [value]="countryDefault" interface="popover" [(ngModel)]="countrySend" name="country">
               <ion-select-option *ngFor="let country of countries" [value]="country">{{country.title}}</ion-select-option>
@@ -45,11 +47,10 @@
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-toolbar>
     <ion-grid>
       <ion-row>
         <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-          <button class="btn padding-btn text-light text-btn">CONTINUE</button>
+          <button class="btn padding-btn text-light text-btn">{{'COMPANYONE.ctn' | translate}}</button>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -58,5 +59,4 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-toolbar>
 </ion-footer>

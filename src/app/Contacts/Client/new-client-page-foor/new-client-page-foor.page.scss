@@ -2,21 +2,32 @@ ion-title{
     text-align: center;
     transform: translate(-45px, 5%);
     color: #0B1D39;
-    font-family: 'Demi';
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 150%;
-    font-weight: 600;
+    font-weight: bold;
 }
-
+.ios ion-title{
+    text-align: center;
+    transform: translate(-45px, 30%);
+    color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    font-weight: bold;
+}
 ion-header{
     padding-top: 5%;
 }
+ion-content{
+    transform: translateY(3%);
 
+}
 .icon-menu{
     float: left;
     position: relative;
     left: 30px;
     top: 5px;
 }
+.ios 
 
 .rounded-card{
     --background: #FFFFFF;
@@ -29,11 +40,14 @@ ion-header{
 
 .sub-title{
     transform: translateX(5%);
-    font-family: 'Medium';
-    font-weight: 599;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
     margin-top: 4%;
 }
-
+.placeholder-color{
+    --placeholder-color: rgb(16, 15, 15);
+    --placeholder-opacity: 1;
+}
 .input-border{
     border: solid rgba(0, 0, 0, .12);
     border-radius: 5px;

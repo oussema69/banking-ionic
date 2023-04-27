@@ -29,12 +29,15 @@ export class NewCompanyPageTwoPage implements OnInit {
       exercice: new FormControl(this.accountDefault),
       currency: new FormControl(this.currencyDefault)
     });
-
+    let lang = '';
+    await this.storage.get('SELECTED_LANGUAGE').then((val: string) => {
+      lang = val;
+    });
     await this.storage.get('access_token').then(val => {
       this.accessToken = val;
     });
 
-    this.http.getOptions('/general/currencies', 'en', this.accessToken).subscribe((res: any) => {
+    this.http.getOptions('/general/currencies', lang, this.accessToken).subscribe((res: any) => {
       console.log(res);
       this.currencies = res.data.currencies;
       this.currencyDefault = this.currencies[138];
@@ -42,7 +45,7 @@ export class NewCompanyPageTwoPage implements OnInit {
       console.log(err);
     });
 
-    this.http.getOptions('/general/activities', 'en', this.accessToken).subscribe((res: any) => {
+    this.http.getOptions('/general/activities', lang, this.accessToken).subscribe((res: any) => {
       console.log(res);
       this.activities = res.data.activities;
       this.activityDefault = this.activities[0];
@@ -50,7 +53,7 @@ export class NewCompanyPageTwoPage implements OnInit {
       console.log(err);
     });
 
-    this.http.getOptions('/general/accounting', 'en', this.accessToken).subscribe((res: any) => {
+    this.http.getOptions('/general/accounting', lang, this.accessToken).subscribe((res: any) => {
       console.log(res);
       this.accounting = res.data.accountingPeriods;
       this.accountDefault = this.accounting[0];
@@ -68,13 +71,16 @@ export class NewCompanyPageTwoPage implements OnInit {
     let data: any;
     await this.storage.get('newCompany').then(val => {
       data = val;
+      console.log('company data',data)
     });
+
+   
     data.activity_id = this.activity.value.hashed_id;
     data.currency_id = this.currency.value.hashed_id;
     data.accounting_period_id = this.exercice.value.hashed_id;
     data.fiscal_id = this.tax.value;
     console.log(this.tax.value);
-    console.log(data);
+    console.log(data,'final data to send:');
     this.storage.set('newCompany', data)
     this.router.navigate(['/new-company-page-three']);
   }

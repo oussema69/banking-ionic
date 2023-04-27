@@ -11,23 +11,33 @@
     <div id="containerCss">
       <form [formGroup]="formData" (ngSubmit)="onSubmit">
         <ion-list lines="full" class="ion-no-margin">
-          <div class="input-border">
+          
+          <div class="input-border" #nameInput >
             <ion-item lines="none">
-              <ion-input placeholder="{{ 'REGIS.input1' | translate}}" type="text" formControlName="name"></ion-input>
+              <ion-input placeholder="{{ 'REGIS.input1' | translate}}" type="text" formControlName="name" (ionChange)="validateName()" ></ion-input>
             </ion-item>
           </div>
           <ion-item *ngIf="name.errors?.required && name.touched" class="error">{{ 'REGIS.alrt1inp1' | translate}}</ion-item>
-          <div class="input-border">
+          <div class="input-border" #emailInput>
             <ion-item lines="none">
-              <ion-input placeholder="{{ 'REGIS.input2' | translate}}" type="text" formControlName="email" minlength="7"></ion-input>
+              <ion-input placeholder="{{ 'REGIS.input2' | translate}}" type="text" formControlName="email"  (ionChange)="validateEmail()" minlength="7"></ion-input>
             </ion-item>
           </div> 
           <ion-item *ngIf="email.errors?.required && email.touched" class="error">{{ 'REGIS.alrt1inp2' | translate}}</ion-item>
           <ion-item *ngIf="email.errors?.pattern && email.touched && !email.errors?.['minlength']" class="error">{{ 'REGIS.alrt2inp2' | translate}}</ion-item>
           <ion-item *ngIf="email.errors?.['minlength'] && email.touched" class="error">{{ 'REGIS.alrt3inp2' | translate}}</ion-item>
-          <div class="input-border">
+          <div class="input-border" #telInput>
             <ion-item lines="none">
-              <ion-input placeholder="{{ 'REGIS.input3' | translate}}" type="password" id="pass" formControlName="password"  minlength="7"></ion-input>
+              <ion-input placeholder="{{ 'REGIS.telinput' | translate}}" type="text" id="tel" formControlName="tel"  (ionChange)="validateTel()" minlength="8"></ion-input>
+            </ion-item>
+          </div> 
+          <ion-item *ngIf="tel.errors?.required && tel.touched" class="error">{{ 'REGIS.alerttel' | translate}}</ion-item>
+          <ion-item *ngIf="tel.errors?.pattern && tel.touched" class="error"> {{ 'COMPANYONE.telError2' | translate}}</ion-item>
+          <ion-item *ngIf="tel.errors?.['minlength'] && tel.touched" class="error"> {{ 'COMPANYONE.telError3' | translate}}</ion-item>
+
+          <div class="input-border" #passInput>
+            <ion-item lines="none">
+              <ion-input placeholder="{{ 'REGIS.input3' | translate}}" type="password" id="pass" formControlName="password" (ionChange)="validatePass()" minlength="8"></ion-input>
               <a class="type-toggle" (click)="toggleShow()">
                 <img src="../../assets/img/Trailing icon.png">
               </a>
@@ -38,26 +48,38 @@
         </ion-list>
         <ion-grid>
           <div class="container-1">
-            <ion-row>
-              <ion-col class="button3-color btn-radius" (click)="onSubmit()">
-                <button class="btn" type="submit"><span class="text-btn text-light">{{ 'REGIS.btn3' | translate}}</span></button>
-              </ion-col>
-            </ion-row>
+            <ion-col  >
+              <ion-button shape="round" color="primary" class="btn-reg" (click)="onSubmit()">
+                <span >{{ 'REGIS.btn3' | translate}}</span>
+              </ion-button>
+              
+            </ion-col>
+          
           </div>
           <div class="container-2">
             <ion-label class="label label-footer">
               {{'REGIS.info3' | translate}}
             </ion-label>
+            <!---facebook and google signup----->
             <ion-row>
               <ion-col class="button1-color btn-radius">
-                <img src="../../assets/img/Icon awesome-facebook-f.png">
-                <a class="btn"><span class="text-btn text-light">{{ 'REGIS.btn1' | translate}}</span></a>
+                <ion-button shape="round" color="tertiary"><img src="../../assets/img/Icon awesome-facebook-f.png">
+                  <a  (click)="facebookSignup()"><span style="color: white;" >{{ 'REGIS.btn1' | translate}}</span></a>
+
+                </ion-button>
+
+                
               </ion-col>
-              <ion-col class="button2-color btn-radius" (click)="googleSignup()">
-                <img src="../../assets/img/Icon awesome-google.png">
-                <a class="btn"><span class="text-btn text-light">{{ 'REGIS.btn2' | translate}}</span></a>
+              <ion-col class="button2-color btn-radius">
+                <ion-button shape="round" color="danger" (click)="googleSignup()"><img src="../../assets/img/Icon awesome-google.png">
+                  <a  (click)="googleSignup()"><span style="color: white;">{{ 'REGIS.btn2' | translate}}</span></a>
+
+                </ion-button>
+                
               </ion-col>
             </ion-row>
+            <!-------->
+
           </div>
         </ion-grid>
       </form>

@@ -5,19 +5,49 @@
     top: 5px;
 }
 
-ion-header{
+ ion-header{
     padding-top: 5%;
 }
+.img{
+    width: 69%;
+    height: 30%;
+    transform: translate(17%, 12%);
 
+}
+.empty-par{
+    transform: translate(0%, 102%);
+    text-align: center;
+    color:#A6BCD0;
+  font-family: 'Futura PT','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: meduim;
+
+}
+.my-custom-class  {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #44C4A1;
+  }
+.ios .first-gird{
+    transform: translate(0%, 30%);
+}
 ion-title{
     text-align: center;
     transform: translate(-25%, 5%);
     color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 130%;
+    font-weight: bold;
+}
+.ios ion-title{
+    text-align: center;
+    transform: translate(-25%, 40%);
+    color: #0B1D39;
     font-family: 'Demi';
     font-size: 130%;
     font-weight: 600;
+  
 }
-
 .rounded-card{
     --background: #FFFFFF;
     box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
@@ -64,7 +94,17 @@ ion-title{
     margin-bottom: 10px;
     height: 40px;
 }
-
+@media  (max-width: 361px) {
+    .input-border-display-name{
+        background-color: #F0F4F8;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-right: 25px;
+        margin-left: 9px;
+        margin-bottom: 10px;
+        height: 40px;
+    }
+   }
 .display-name{
     color: #0B1D39;
     transform: translateX(2%);
@@ -101,7 +141,10 @@ ion-title{
     transform: translate(-500%, -120%);
     float: right;
 }
-
+.ios .menu{
+    transform: translate(-500%, 20%);
+    float: right;
+}
 .menu-item{
     float: right;
     transform: translate(-100%, -50%);
@@ -143,11 +186,11 @@ ion-footer{
     padding: 3%;
 }
 
-// .custom-popover ion-list {
-//     // --min-width: 600px !important;
-//     // --min-height: 150px !important;
-//     // --ion-background-color: red;
-//     // --ion-text-color: #ffffff;
-//     --background: red;
-//     --height: 20% !important;
-// }
+ .custom-popover {
+ --min-width: 600px !important;
+      --min-height: 150px !important;
+ --ion-background-color: red;
+ --ion-text-color: #ffffff;
+  --background: red;
+     --height: 20% !important;
+ }

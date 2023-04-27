@@ -10,6 +10,7 @@ import { ViewWillEnter } from '@ionic/angular/types/ionic-lifecycle-hooks';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements ViewWillEnter {
+  public onlineOffline: boolean = navigator.onLine;
   constructor(private languageService: LanguageService, private router: Router, private storage: Storage) {
     this.initializeApp();
   }
@@ -22,9 +23,16 @@ export class AppComponent implements ViewWillEnter {
     else
       this.router.navigate(['/login']);
     });
+  
   }
 
   initializeApp(){
+    
+    console.log(this.onlineOffline,'check internet')
+    if(this.onlineOffline==false){
+      this.router.navigate(['/nointernet']);
+    }
+
     this.languageService.setInitialAppLanguage();
   }
 }

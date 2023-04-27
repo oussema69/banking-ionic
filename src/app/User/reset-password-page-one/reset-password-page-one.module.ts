@@ -9,6 +9,7 @@ import { ResetPasswordPageOnePageRoutingModule } from './reset-password-page-one
 
 import { ResetPasswordPageOnePage } from './reset-password-page-one.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { Device } from '@awesome-cordova-plugins/device/ngx';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   declarations: [ResetPasswordPageOnePage],
   providers: [
-    Keyboard
+    Keyboard,
+    Device
   ]
 })
 export class ResetPasswordPageOnePageModule {}

@@ -19,18 +19,57 @@
     filter: brightness(0%);
 }
 
+.img{
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+     border-bottom-right-radius: 50% 50%; 
+     border-bottom-left-radius: 50% 50%; 
+     border: 2px solid ;
+     border-color: #306FEA;
+    width: 68px;
+    height: 68px;
+    position: relative;
+
+   
+}
 *{
     font-family: 'Book';
     font-size: 100%;
     font-weight: 500;
 }
-
-ion-title{
-    font-size: 130%;
-    font-weight: 600;
-    transform: translate(25%, -200%);
-    font-family: 'Medium';
+.md .Utitle{
+    transform: translate(29%, -318%);
+    color: #A6BCD0;
+    font-size: 70%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
 }
+.ios .Utitle{
+    transform:translate(30%, -213%);
+    color: #A6BCD0;
+
+    font-size: 70%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+.ios ion-title{
+    position: absolute;
+    color: black;
+    font-size: 102%;
+    transform: translate(-12%, -18%);
+    font-weight: bold   ;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    left: 5%;
+    top: -2%;
+    }
+.md ion-title{
+    color: black;
+    font-size: 104%;
+    font-weight: bold;
+    transform: translate(22%, -200%);
+    font-family: Georgia, "Times New Roman", Times, serif;
+    }
+
 
 ion-header{
     padding-top: 5%;
@@ -38,11 +77,17 @@ ion-header{
     padding-left: 5%;
 }
 
-.path{
+.ios .path{
     float: right;
-    transform: translate(-200%,-1000%);
+    transform: translate(-20%,-490%);
 }
 
+.md .path{
+    float: right;
+    transform: translate(-20%,-670%);
+    
+    
+}
 .path-1{
     float: right;
     transform: translate(-50%,120%);
@@ -50,6 +95,10 @@ ion-header{
 
 .title{
     color: #A6BCD0;
+}
+.ios .title{
+    color: #A6BCD0;
+
 }
 
 .rounded-card {

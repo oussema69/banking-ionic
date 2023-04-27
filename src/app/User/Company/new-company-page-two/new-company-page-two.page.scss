@@ -52,10 +52,18 @@
 
 ion-title{
     color: #0B1D39;
-    font-size: 24px;
-    font-family: 'Demi';
+    font-size: 23px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: relative;
     right: -10%;
+}
+.ios ion-title{
+    color: #0B1D39;
+    font-size: 23px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute; 
+    left: -12%;
+    margin-top: 1%;
 }
 
 .content{
@@ -67,14 +75,52 @@ ion-title{
     font-family: 'Medium';
     font-weight: 600;
 }
+@media  (max-width: 500px) {
+    .label{
+        transform: translate(13%, -82%);
+        font-size: 70%;
+        font-family: "Book";
+        color: rgba(152, 150, 150, 0.6);
+        background-color: white;
+        width: 37px;
+        text-align: center;
+    }
+  }
+  @media  (min-width: 500px) {
+    .label{
+        transform: translate(55%, -82%);
+        font-size: 70%;
+        font-family: "Book";
+        color: rgba(152, 150, 150, 0.6);
+        background-color: white;
+        width: 35px;
+        text-align: center;
+    }
+  }
+//last
+@media  (max-width: 500px) {
+    .label1{
+        transform: translate(13%, -82%);
+        font-size: 70%;
+        font-family: "Book";
+        color: rgba(152, 150, 150, 0.6);
+        background-color: white;
+        width: 65px;
+        text-align: center;
+    }
+  }
+  @media  (min-width: 500px) {
+    .label1{
+        transform: translate(13%, -82%);
+        font-size: 70%;
+        font-family: "Book";
+        color: rgba(152, 150, 150, 0.6);
+        background-color: white;
+        width: 66px;
+        text-align: center;
+    }
+  }
 
-.label{
-    transform: translate(12%, 115%);
-    font-size: 70%;
-    font-family: 'Book';
-    color: #00000099;
-    font-weight: 900;
-}
 
 ion-input{
     --placeholder-color: #00000099;

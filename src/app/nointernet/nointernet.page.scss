@@ -1,0 +1,80 @@
+.rounded-card{
+    --background: #FFFFFF;
+    box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    height: 99.5%;
+}
+.btn-radius{
+    border-radius: 50px;
+}.button3-color{
+    margin-bottom: 10%;
+    background-color: #0E78E0 ;
+    margin: 10px;
+    text-align: center;
+}
+ion-title{
+    position:center;
+}
+h1{
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    top: 5%;
+}
+@media (max-width:400px) {
+    img{
+   
+
+        position: relative;
+        top:15%;
+        left:17%
+       
+    }  
+}
+ @media (min-width:400px) {
+   img{
+   
+
+        position: relative;
+        top:25%;
+        left:35%
+       
+    }  
+}
+
+@media (min-width:1200px) {
+    img{
+    
+ 
+         position: relative;
+         top:25%;
+         left:41%
+        
+     }  
+ }
+ @media (max-width:400px) {
+    .text{
+        text-align: center;
+        position: relative;
+        top: 17%;
+    }
+}
+ @media (min-width:400px) {
+    .text{
+        text-align: center;
+        position: relative;
+        top: 29%;
+    }  
+}
+
+@media (min-width:1200px) {
+    img{
+    
+ 
+         position: relative;
+         top:25%;
+         left:41%
+        
+     }  
+ }

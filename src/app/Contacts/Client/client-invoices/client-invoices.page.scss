@@ -8,16 +8,25 @@
 ion-header{
     padding-top: 5%;
 }
-
+ion-content{
+   transform: translateY(2%);
+}
 ion-title{
     text-align: center;
-    transform: translate(-10%, 5%);
+    transform: translate(-10%, -13%);
+    color: #0B1D39;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 23.25px;
+    font-weight:bold;
+}
+.ios ion-title{
+    text-align: center;
+    transform: translate(-10%, 27%);
     color: #0B1D39;
     font-family: 'Demi';
-    font-size: 130%;
-    font-weight: 600;
+    font-size: 23.25px;
+    font-weight:Futura PT, Demi;
 }
-
 .rounded-card{
     --background: #FFFFFF;
     box-shadow: 1px 1px 5px #a6bcd000 , 1px 1px 5px #A6BCD0 ;
@@ -33,7 +42,7 @@ ion-title{
     margin-right: 25px;
     margin-left: 25px;
     margin-bottom: 15px;
-    height: 80px;
+    height: 70px;
 }
 
 .input-border-focus{
@@ -62,7 +71,7 @@ ion-title{
     margin-right: 25px;
     margin-left: 10px;
     margin-bottom: 10px;
-    height: 40px;
+    height: 36px;
     text-align: center;
 }
 
@@ -70,13 +79,26 @@ ion-title{
     float: right;
     transform: translate(0px, 50%);
 }
+.img{
+    width: 69%;
+    height: 30%;
+    transform: translate(17%, 12%);
 
+}
+.empty-par{
+    transform: translate(0%, 102%);
+    text-align: center;
+    color:#A6BCD0;
+  font-family: 'Futura PT','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: meduim;
+
+}
 .display-invoice{
     color: #0B1D39;
     transform: translateX(2%);
-    font-family: 'Medium';
-    font-size: 120%;
-    font-weight: 600;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 13.50px;
+    font-weight: bold;
 }
 
 .date{
@@ -92,8 +114,8 @@ ion-title{
     width: 80%;
     padding-left: 4%;
     border-radius: 5px;
-    font-family: 'Medium';
     text-align: center;
+    transform: translateY(30%);
 }
 
 .price-2{

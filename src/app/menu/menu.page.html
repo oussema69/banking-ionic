@@ -1,22 +1,31 @@
 <ion-menu contentId="content">
     <ion-header class="ion-no-border">
-      <ion-toolbar>
-        <img src="../../assets/img/Groupe de masques 1.png">
-        <ion-title>{{name}}</ion-title>
-        <img src="../../assets/img/Path.png" class="path">
-      </ion-toolbar>
+     
+        <img *ngIf="photo==Null" src="../../assets/img/Groupe de masques 1.png" class="img">
+        <img *ngIf="photo!=Null" [src]="srcPhoto" class="img">
+        <ion-title >{{name}}</ion-title>
+        <p *ngIf=" sub_id==1" class="Utitle">{{'SUBSCRIPTION.price' | translate}}</p>
+        <p *ngIf=" sub_id==2" class="Utitle">{{'SUBSCRIPTION.startup' | translate}}</p>
+        <ion-icon name="log-out-outline" color="danger" class="path" (click)="logout()"></ion-icon>
+      <hr>
     </ion-header>
     <ion-content>
-      <ion-button (click)="logout()">Logout</ion-button>
-      <ion-select [value]="companySelect" interface="popover" [routerLink]="[selectedPath]" routerDirection="root" (ionChange)="setCompany($event)">
+      <ion-select [value]="companySelect" interface="popover" [(ngModel)]="companyList[0]">
         <ion-select-option *ngFor="let company of companyList" [value]="company">{{company.name}}</ion-select-option>
       </ion-select>
       <ion-list>
-        <ion-list inset="true" class="list">
-          <ion-accordion-group>
+           <ion-menu-toggle [routerLink]="dashboard.url" routerDirection="root" [class.active-item]="selectedPath === dashboard.url">
+        <ion-item>
+          <img src="../../assets/img/Icon ionic-md-stats.png" class="icone icone-color" #iconeDashboard>{{'MENU.dash' | translate}}
+
+        </ion-item>
+         
+        </ion-menu-toggle>
+        <ion-list inset="true" class="list" (click)="setlang()">
+          <ion-accordion-group >
             <ion-accordion value="sales">
                 <ion-item slot="header" class="ion-no-border">
-                  <img src="../../assets/img/Icon awesome-toolbox.png" class="icone">Company Management
+                  <img src="../../assets/img/Icon awesome-toolbox.png" class="icone">{{'MENU.company' | translate}}
                 </ion-item>
                 <ion-list slot="content">
                   <ion-menu-toggle auto-hide="true" *ngFor="let page of companyManagementPages">
@@ -28,16 +37,14 @@
             </ion-accordion>
           </ion-accordion-group>
         </ion-list>
-        <ion-menu-toggle auto-hide="true">
-          <ion-item [routerLink]="dashboard.url" routerDirection="root" [class.active-item]="selectedPath === dashboard.url">
-            <img src="../../assets/img/Icon ionic-md-stats.png" class="icone icone-color" #iconeDashboard>{{ dashboard.title }}
-          </ion-item>
-        </ion-menu-toggle>
+      
+     
+        
         <ion-list inset="true" class="list">
           <ion-accordion-group>
             <ion-accordion value="sales">
                 <ion-item slot="header" lines="none">
-                  <img src="../../assets/img/Icon metro-contacts-dialer.png" class="icone">Contacts
+                  <img src="../../assets/img/Icon metro-contacts-dialer.png" class="icone">{{'MENU.ctn' | translate}}
                 </ion-item>
                 <ion-list slot="content">
                   <ion-menu-toggle auto-hide="true" *ngFor="let page of contactsPages">
@@ -52,8 +59,24 @@
         <ion-list inset="true" class="list">
           <ion-accordion-group>
             <ion-accordion value="sales">
+                <ion-item slot="header" lines="none">
+                  <img src="../../assets/img/stocklogo.png" class="icone">{{'MENU.stock' | translate}}
+                </ion-item>
+                <ion-list slot="content">
+                  <ion-menu-toggle auto-hide="true" *ngFor="let page of  stock">
+                    <ion-item [routerLink]="page.url" routerDirection="root" [class.active-item]="selectedPath === page.url" class="child" lines="none">
+                      {{ page.title }}
+                    </ion-item>
+                  </ion-menu-toggle>
+              </ion-list>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-list>
+        <ion-list inset="true" class="list">
+          <ion-accordion-group>
+            <ion-accordion value="sales">
                 <ion-item slot="header">
-                  <img src="../../assets/img/Groupe 233.png" class="icone">Sales
+                  <img src="../../assets/img/Groupe 233.png" class="icone">{{'MENU.sales' | translate}}
                 </ion-item>
                 <ion-list slot="content">
                   <ion-menu-toggle auto-hide="true" *ngFor="let page of salesPages">
